@@ -1,0 +1,29 @@
+import React from 'react'
+import ContactForm from './ContactForm'
+import Heading from './Heading'
+
+const ContactSection = () => {
+    return (
+        <div className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-16 bg-benefits-bg">
+            <div className="flex lg:flex-row flex-col gap-8">
+
+                <div className="w-full lg:w-1/2 flex flex-col gap-5">
+                    <Heading className=' text-2xl lg:text-3xl'>
+                        Transform Institutional Operations with a Unified ERP
+                    </Heading>
+                    <p className='text-base  text-text-paragraph font-medium'>
+                        Ready to streamline your educational institution? Get in touch with our team to schedule a personalized demo and see how our ERP can transform your operations.
+                    </p>
+
+
+                </div>
+                <div className="w-full lg:w-1/2">
+
+                    <ContactForm />
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default ContactSection

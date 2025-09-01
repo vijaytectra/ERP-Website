@@ -1,56 +1,68 @@
+import Benefits from "@/components/Benefits";
+import ContactSection from "@/components/ContactSection";
+import Features from "@/components/Features";
 import HeroSection from "@/components/HeroSection";
+import Pricing from "@/components/Pricing";
+import UseCases from "@/components/UseCases";
+import WhyUs from "@/components/WhyUs";
 
 export default function Home() {
   return (
-    <>
+    <div className="flex flex-col space-y-6">
       <section
         id="home"
-       
+
       >
-        <HeroSection/>
+        <HeroSection />
       </section>
 
       <section
         id="why-choose"
-        className="h-screen flex items-center justify-center "
+
       >
-        <h2 className="text-heading text-3xl">Why Choose</h2>
+        <WhyUs />
       </section>
 
       <section
         id="benefits"
-        className="h-screen flex items-center justify-center "
+
       >
-        <h2 className="text-heading text-3xl">Benefits</h2>
+        <Benefits />
       </section>
 
       <section
         id="features"
-        className="h-screen flex items-center justify-center "
+
       >
-        <h2 className="text-white text-3xl">Features</h2>
+        <Features />
       </section>
 
       <section
         id="use-cases"
-        className="h-screen flex items-center justify-center "
+
       >
-        <h2 className="text-heading text-3xl">Use Cases</h2>
+        <UseCases />
       </section>
 
-      <section
+      {/* <section
         id="integrations"
-        className="h-screen flex items-center justify-center "
+      
       >
         <h2 className="text-heading text-3xl">Integrations</h2>
-      </section>
+      </section> */}
 
       <section
         id="pricing"
-        className="h-screen flex items-center justify-center "
+
       >
-        <h2 className="text-heading text-3xl">Pricing</h2>
+        <Pricing />
       </section>
-    </>
+      <section
+        id="contact"
+
+      >
+        <ContactSection />
+      </section>
+    </div>
   );
 }

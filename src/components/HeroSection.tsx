@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 const HeroSection = () => {
     return (
-        <section className=" flex flex-col items-center justify-center  px-5 lg:px-10 py-5 bg-white">
+        <section className=" flex flex-col items-center justify-center  px-5 lg:px-10 py-10 bg-white">
             {/* Text Content */}
             <div className="max-w-4xl text-center space-y-6">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-heading leading-tight">
@@ -12,7 +12,7 @@ const HeroSection = () => {
                     <span className="text-web">Accreditation, Automated</span>
                 </h1>
 
-                <p className="text-base md:text-lg text-gray-600 font-medium">
+                <p className="text-base md:text-lg text-text-paragraph font-medium">
                     Cloud-based, secure, and customizable ERP that streamlines admissions,
                     fees, academics, compliance, analytics, and real-time parent
                     communication — in one powerful platform.

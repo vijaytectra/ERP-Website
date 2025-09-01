@@ -14,7 +14,7 @@ import { navLinks } from "@/utils/consts";
 import { Button } from "./ui/button";
 
 const Navbar = () => {
-    const pathname = usePathname();
+   
     const [open, setOpen] = useState(false);
     const [activeSection, setActiveSection] = useState<string>("#");
 
@@ -39,7 +39,7 @@ const Navbar = () => {
     }, [activeSection]);
 
     return (
-        <nav className=" w-full  shadow-[0_0_4px_0_#968bff40] bg-yellow-200 sticky top-0 z-50">
+        <nav className=" w-full  shadow-[0_0_4px_0_#968bff40] bg-yellow-100 sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-3 py-2  md:py-5 lg:px-10 lg:py-1  flex items-center justify-between">
                 {/* Logo */}
                 {/* Logo */}
@@ -65,7 +65,7 @@ const Navbar = () => {
                 <ul className="hidden lg:flex flex-row items-center space-x-8 text-sm">
                     {navLinks.map(({ label, href }) => {
                         const isActive = href === activeSection;
-                        console.log(activeSection);
+
                         return (
                             <li key={label}>
                                 <Link
@@ -106,7 +106,7 @@ const Navbar = () => {
                             <div className="p-6 flex flex-col gap-3">
                                 {navLinks.map(({ label, href }) => {
                                     const isActive = href === activeSection;
-                                    console.log(activeSection);
+
                                     return (
                                         <Link
                                             key={label}

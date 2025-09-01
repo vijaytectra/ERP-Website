@@ -8,12 +8,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans); /* Now Manrope */
   --color-web: #ffb896;
-  --color-primary: #796bfe;
-  --color-secondary: #f2f2f2;
+  --color-primary-web: #796bfe;
+  --color-secondary-web: #f2f2f2;
   --color-benefits-bg:#FBD4C2;
   --color-usecasees-bg:#282843;
   --color-text-heading:#111112;
-  --color-test-paragraph:#686868;
+  --color-text-paragraph:#686868;
+  
+  
 
   --font-mono: var(--font-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -139,16 +141,16 @@ body {
     color: var(--color-web);
   }
   .text-primary {
-    color: var(--color-primary);
+    color: var(--color-primary-web);
   }
   .text-secondary {
-    color: var(--color-secondary);
+    color: var(--color-secondary-web);
   }
   .text-heading {
     color: var(--color-text-heading);
   }
   .text-paragraph {
-    color: var(--color-test-paragraph);
+    color: var(--color-text-paragraph);
   }
 
   /* Background colors */
@@ -156,10 +158,10 @@ body {
     background-color: var(--color-web);
   }
   .bg-primary {
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-web);
   }
   .bg-secondary {
-    background-color: var(--color-secondary);
+    background-color: var(--color-secondary-web);
   }
   .bg-benefits {
     background-color: var(--color-benefits-bg);
