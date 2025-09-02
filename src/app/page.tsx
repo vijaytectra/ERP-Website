@@ -9,58 +9,33 @@ import WhyUs from "@/components/WhyUs";
 export default function Home() {
   return (
     <div className="flex flex-col space-y-6">
-      <section
-        id="home"
-
-      >
+      <section id="home">
         <HeroSection />
       </section>
 
-      <section
-        id="why-choose"
-
-      >
+      <section id="why-choose">
         <WhyUs />
       </section>
 
-      <section
-        id="benefits"
-
-      >
-        <Benefits />
+      {/* --- This is the change --- */}
+      <section id="benefits">
+        <Benefits  />
       </section>
+      {/* ------------------------- */}
 
-      <section
-        id="features"
-
-      >
+      <section id="features">
         <Features />
       </section>
 
-      <section
-        id="use-cases"
-
-      >
+      <section id="use-cases">
         <UseCases />
       </section>
 
-      {/* <section
-        id="integrations"
-      
-      >
-        <h2 className="text-heading text-3xl">Integrations</h2>
-      </section> */}
-
-      <section
-        id="pricing"
-
-      >
+      <section id="pricing">
         <Pricing />
       </section>
-      <section
-        id="contact"
 
-      >
+      <section id="contact">
         <ContactSection />
       </section>
     </div>

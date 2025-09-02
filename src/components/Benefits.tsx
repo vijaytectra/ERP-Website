@@ -34,6 +34,8 @@ const BenefitItem = ({
     }
   }, [inView, id, setActiveId]);
 
+
+
   return (
     // Set height for each scrolling section on desktop
     <div ref={ref} className="h-[32rem] flex items-center">
@@ -52,9 +54,9 @@ const BenefitItem = ({
 const Benefits = () => {
   const [activeId, setActiveId] = useState(benefitsValues[0].id);
   const activeBenefit = benefitsValues.find((b) => b.id === activeId);
-
+ 
   return (
-    <div className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-16 bg-benefits-bg">
+    <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-16 bg-benefits-bg">
       <Heading className="mb-12 text-center">Benefits</Heading>
 
       {/* DESKTOP VIEW - Two-column sticky layout */}
@@ -114,7 +116,7 @@ const Benefits = () => {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

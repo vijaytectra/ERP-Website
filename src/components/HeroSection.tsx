@@ -18,12 +18,12 @@ const HeroSection = () => {
                     communication — in one powerful platform.
                 </p>
                 <div className="mt-8 flex flex-col sm:justify-center sm:flex-row gap-4">
-                    <a href="#demo" >
+                    <a href="#contact" >
                         <Button className="rounded-full cursor-pointer bg-web text-text-heading font-semibold px-6 py-3 hover:bg-web/90 transition">
                             Request a Demo
                         </Button>
                     </a>
-                    <a href="#get-pricing">
+                    <a href="#pricing">
                         <Button className="rounded-full cursor-pointer border-2 border-web text-text-heading  bg-white font-semibold px-6 py-3 hover:bg-transparent transition">
                             Get Pricing
                         </Button>

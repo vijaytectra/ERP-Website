@@ -3,6 +3,8 @@
 import { FC, useState } from "react";
 import { Check } from "lucide-react";
 import { Button } from "./ui/button";
+import { Switch } from "./ui/switch"; // Import the Switch component
+import { Label } from "./ui/label"; // Import the Label component
 
 // --- Configuration ---
 // Easily edit the discount percentage here
@@ -91,24 +93,18 @@ const PricingSection: FC = () => {
         <section className="w-full py-16">
             {/* Billing Toggle */}
             <div className="flex justify-center items-center gap-4 mb-12">
-                <button
-                    onClick={() => setBilling("half_yearly")}
-                    className={`px-4 py-2 rounded-full border text-sm font-medium transition-colors ${billing === "half_yearly"
-                        ? "bg-web text-black border-web"
-                        : "bg-gray-100 text-gray-600 border-web hover:bg-gray-200"
-                        }`}
-                >
+                <Label htmlFor="billing-switch" className={`text-sm font-medium ${billing === "half_yearly" ? "text-text-heading" : "text-gray-500"}`}>
                     Half-Yearly
-                </button>
-                <button
-                    onClick={() => setBilling("yearly")}
-                    className={`px-4 py-2 rounded-full border text-sm font-medium transition-colors ${billing === "yearly"
-                        ? "bg-web text-black border-web"
-                        : "bg-gray-100 text-gray-600 border-web hover:bg-gray-200"
-                        }`}
-                >
+                </Label>
+                <Switch
+                    id="billing-switch"
+                    checked={billing === "yearly"}
+                    className="border-web border-2 "
+                    onCheckedChange={(checked: unknown) => setBilling(checked ? "yearly" : "half_yearly")}
+                />
+                <Label htmlFor="billing-switch" className={`text-sm font-medium ${billing === "yearly" ? "text-text-heading" : "text-gray-500"}`}>
                     Yearly
-                </button>
+                </Label>
                 {billing === "yearly" && (
                     <span className="text-xs text-violet-600 font-medium">
                         Save {YEARLY_DISCOUNT_PERCENTAGE}%

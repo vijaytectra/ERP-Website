@@ -10,12 +10,10 @@
   --color-web: #ffb896;
   --color-primary-web: #796bfe;
   --color-secondary-web: #f2f2f2;
-  --color-benefits-bg:#FBD4C2;
-  --color-usecasees-bg:#282843;
-  --color-text-heading:#111112;
-  --color-text-paragraph:#686868;
-  
-  
+  --color-benefits-bg: #fbd4c2;
+  --color-usecasees-bg: #282843;
+  --color-text-heading: #111112;
+  --color-text-paragraph: #686868;
 
   --font-mono: var(--font-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -52,7 +50,9 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: var(--font-sans), sans-serif;
 }
@@ -173,4 +173,3 @@ body {
     border-color: var(--color-web);
   }
 }
-

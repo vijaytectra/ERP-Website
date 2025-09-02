@@ -4,7 +4,7 @@ import Heading from './Heading'
 
 const ContactSection = () => {
     return (
-        <div className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-16 bg-benefits-bg">
+        <div className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-16 bg-benefits-bg mb-10">
             <div className="flex lg:flex-row flex-col gap-8">
 
                 <div className="w-full lg:w-1/2 flex flex-col gap-5">

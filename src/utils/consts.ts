@@ -29,7 +29,7 @@ export const navLinks = [
   {
     id: 1,
     label: "Home",
-    href: "#",
+    href: "#home",
   },
   {
     id: 2,

@@ -71,7 +71,7 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center text-sm">
           {/* Copyright Notice */}
           <p className="text-gray-400 order-2 sm:order-1 mt-4 sm:mt-0">
-            &copy; {new Date().getFullYear()} EduERP. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Edusuite. All Rights Reserved.
           </p>
           
           {/* Legal Links */}
