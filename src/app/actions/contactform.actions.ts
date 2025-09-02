@@ -42,8 +42,6 @@ export async function submitContactForm(
       })(),
     };
 
-    console.log("Form data before validation:", data); // Debug log
-
     // Validate the data using your Zod schema
     const validatedData = contactFormSchema.parse(data);
 

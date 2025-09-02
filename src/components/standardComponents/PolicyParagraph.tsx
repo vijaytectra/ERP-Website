@@ -6,6 +6,6 @@ interface PolicyParagraphProps {
 
 export default function PolicyParagraph({ children }: PolicyParagraphProps) {
     return (
-        <p className="text-text-paragraph text-base/7 font-medium">{children}</p>
+        <p className="text-text-paragraph text-sm/7 font-medium">{children}</p>
     );
 }

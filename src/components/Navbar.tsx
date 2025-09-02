@@ -116,8 +116,8 @@ const Navbar = () => {
                         className="block cursor-pointer"
                     >
                         <Image
-                            src="/log1.svg"
-                            alt="CarbonLab Logo"
+                            src="/logosvg.svg"
+                            alt="ERP Logo"
                             width={160}
                             height={60}
                             className="object-contain w-[160px] h-[80px] md:w-[150px] md:h-[60px] lg:w-[180px] lg:h-[70px]"
