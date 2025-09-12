@@ -294,3 +294,62 @@ export const useCasesValues = [
     bgColor: "#C2F6FF",
   },
 ];
+
+export const plans = [
+  {
+    name: "Starter",
+    tagline: "Perfect for Preschools & Small Schools",
+    description:
+      "Ideal for preschools and small schools looking to digitize admissions, fees, attendance, and basic communication.",
+    price: {
+      half_yearly: 499,
+      yearly: 999,
+    },
+    features: [
+      "Student Admission Management",
+      "Fee Collection & Tracking",
+      "Attendance Management",
+      "Basic Parent Communication",
+      "Up to 200 Students",
+      "Standard Support",
+    ],
+  },
+  {
+    name: "Growth",
+    tagline: "Best for Mid-size Institutions",
+    description:
+      "For mid-size schools/colleges needing advanced academics, timetable automation, wallet, and parent engagement.",
+    price: {
+      half_yearly: 999,
+      yearly: 1999,
+    },
+    features: [
+      "All Starter Features",
+      "Advanced Exam Management",
+      "Timetable Automation",
+      "Student Wallet Integration",
+      "Advanced Analytics",
+      "Dedicated Account Manager",
+      "Up to 1000 Students",
+    ],
+    popular: true,
+  },
+  {
+    name: "Enterprise",
+    tagline: "Complete Solution for Universities",
+    description:
+      "For universities/groups requiring multi-board accreditation, advanced analytics, custom workflows, and priority support.",
+    price: {
+      half_yearly: 1999,
+      yearly: 3999,
+    },
+    features: [
+      "All Growth Features",
+      "Multi-Board Accreditation Reports",
+      "Custom Workflow Automation",
+      "API Access & Integrations",
+      "24/7 Priority Support",
+      "Unlimited Students",
+    ],
+  },
+];

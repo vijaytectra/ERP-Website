@@ -18,9 +18,9 @@ export default function Home() {
       </section>
 
       <section id="benefits">
-        <Benefits />
+        <Benefits  />
       </section>
-
+    
 
       <section id="features">
         <Features />

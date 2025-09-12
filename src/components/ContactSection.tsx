@@ -1,6 +1,5 @@
 import React from 'react'
 import ContactForm from './ContactForm'
-import Heading from './Heading'
 
 const ContactSection = () => {
     return (
@@ -10,9 +9,8 @@ const ContactSection = () => {
         >       <div className="flex lg:flex-row flex-col gap-16">
 
                 <div className="w-full lg:w-1/2 flex flex-col gap-5">
-                    <Heading className=' text-2xl lg:text-3xl'>
-                        Transform Institutional Operations with a Unified ERP
-                    </Heading>
+
+                    <h1 className='text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-text-heading'>Transform Institutional Operations with a Unified ERP</h1>
                     <p className='text-base  text-text-paragraph font-medium'>
                         Ready to streamline your educational institution? Get in touch with our team to schedule a personalized demo and see how our ERP can transform your operations.
                     </p>
