@@ -107,7 +107,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="w-full shadow-[0_0_4px_0_#968bff40] bg-black sticky top-0 z-50">
+        <nav className="w-full shadow-[0_0_4px_0_#968bff40]  ">
             <div className="max-w-7xl mx-auto px-3 py-2 md:py-5 lg:px-10 lg:py-1 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex-shrink-0">
@@ -116,11 +116,11 @@ const Navbar = () => {
                         className="block cursor-pointer"
                     >
                         <Image
-                            src="/logosvg.svg"
+                            src="/logoblack.svg"
                             alt="ERP Logo"
                             width={160}
                             height={60}
-                            className="object-contain w-[160px] h-[80px] md:w-[150px] md:h-[60px] lg:w-[180px] lg:h-[70px]"
+                            className="object-contain w-[160px] h-[60px] md:w-[150px] md:h-[60px] lg:w-[180px] lg:h-[70px]"
                             priority
                         />
                     </button>
@@ -136,8 +136,8 @@ const Navbar = () => {
                                 <button
                                     onClick={() => handleLinkClick(href)}
                                     className={`flex items-center gap-3 font-medium transition cursor-pointer ${isActive
-                                        ? "text-web font-medium"
-                                        : "text-white hover:text-web/80"
+                                        ? "text-primary-web font-medium"
+                                        : "text-black hover:text-primary-web/80"
                                         }`}
                                     aria-current={isActive ? "page" : undefined}
                                 >
@@ -152,7 +152,7 @@ const Navbar = () => {
                 <div className="hidden lg:block">
                     <Button
                         onClick={() => handleLinkClick("#contact")}
-                        className="rounded-4xl bg-web text-black font-semibold px-4 py-2 hover:bg-web/95 cursor-pointer transition"
+                        className="rounded-4xl bg-primary-web text-white font-semibold px-4 py-2 hover:bg-primary-web/95 cursor-pointer transition"
                     >
                         Schedule a Demo
                     </Button>
@@ -166,7 +166,7 @@ const Navbar = () => {
                                 aria-label="Open navigation menu"
                                 className="p-2 text-primary"
                             >
-                                <Menu size={28} className="text-white" />
+                                <Menu size={28} className="text-black" />
                             </button>
                         </SheetTrigger>
                         <SheetContent side="left" className="p-0">
@@ -182,7 +182,7 @@ const Navbar = () => {
                                             key={label}
                                             onClick={() => handleLinkClick(href)}
                                             className={`block py-3 text-lg font-medium transition text-left ${isActive
-                                                ? "text-web"
+                                                ? "text-primary-web"
                                                 : "text-text-paragraph hover:text-text-heading"
                                                 }`}
                                             aria-current={isActive ? "page" : undefined}

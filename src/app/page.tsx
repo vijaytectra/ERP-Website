@@ -8,7 +8,7 @@ import WhyUs from "@/components/WhyUs";
 
 export default function Home() {
   return (
-    <div className="flex flex-col space-y-6">
+    <div className="flex flex-col space-y-10">
       <section id="home">
         <HeroSection />
       </section>
@@ -35,7 +35,7 @@ export default function Home() {
         <Pricing />
       </section>
 
-      <section id="contact">
+      <section id="contact" className="pt-60">
         <ContactSection />
       </section>
     </div>

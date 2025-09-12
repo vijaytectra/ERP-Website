@@ -25,6 +25,7 @@ import ben3 from "../../public/ben-3.png";
 import ben4 from "../../public/ben-4.png";
 import ben5 from "../../public/ben-5.png";
 import ben6 from "../../public/ben-6.png";
+import f1 from "../../public/f1.svg";
 export const navLinks = [
   {
     id: 1,
@@ -71,6 +72,8 @@ export const whyUsValues = [
     description:
       "Replace fragmented tools with one platform that standardizes processes, reduces workload, and improves turnaround across departments.",
     icon: ShieldCheck,
+    iconbg: "#968BFF",
+    iconColor: "#ffffff",
   },
   {
     id: 2,
@@ -78,6 +81,8 @@ export const whyUsValues = [
     description:
       "Analytics, heatmaps, and AI recommendations surface weak areas early and drive measurable student performance improvement.",
     icon: ChartSpline,
+    iconbg:"#FFB896",
+    iconColor:"#000000",
   },
   {
     id: 3,
@@ -85,6 +90,8 @@ export const whyUsValues = [
     description:
       "Dynamic criteria, version control, OCR evidence, immutable logs, and one‑click SSR/SAR/AQAR exports slash accreditation effort.",
     icon: FileChartColumnIncreasing,
+     iconbg: "#968BFF",
+    iconColor: "#ffffff",
   },
   {
     id: 4,
@@ -92,6 +99,8 @@ export const whyUsValues = [
     description:
       "Real‑time alerts, meeting scheduler, calendar sync, and a rechargeable wallet make every interaction simple and delightful.",
     icon: Users,
+    iconbg:"#FFB896",
+    iconColor:"#000000",
   },
   {
     id: 5,
@@ -99,6 +108,8 @@ export const whyUsValues = [
     description:
       "Role‑based access, field‑level encryption, 2FA, rate‑limited logins, inactivity logout, daily geo‑redundant backups.",
     icon: Lock,
+     iconbg: "#968BFF",
+    iconColor: "#ffffff",
   },
 ];
 
@@ -160,6 +171,9 @@ export const features1 = [
     description:
       "Digital applications with dynamic fields, document upload, alumni/legacy detection, draft mode, and automated notifications.",
     icon: GraduationCap,
+    imageUrl: f1,
+    iconbg:"#FFB896",
+    iconColor:"#000000",
   },
   {
     id: 2,
@@ -167,6 +181,9 @@ export const features1 = [
     description:
       "Centralized profiles, lifecycle tracking, secure documents, leave management, and audit trails across HR and academics.",
     icon: Users,
+    imageUrl: f1,
+     iconbg: "#968BFF",
+    iconColor: "#ffffff",
   },
 
   {
@@ -175,6 +192,9 @@ export const features1 = [
     description:
       "App-based attendance, biometric/RFID-ready, CSV/Excel imports, pre-approved leave handling, and real-time absentee alerts.",
     icon: CalendarCheck2,
+    imageUrl: f1,
+       iconbg:"#FFB896",
+    iconColor:"#000000",
   },
   {
     id: 4,
@@ -182,16 +202,19 @@ export const features1 = [
     description:
       "Automated invoices, online/offline payments, late-fee logic, Tally sync, tax-compliant receipts, and a rechargeable student wallet for on-campus spends.",
     icon: Wallet,
+    imageUrl: f1,
+     iconbg: "#968BFF",
+    iconColor: "#ffffff",
   },
-];
-
-export const features2 = [
   {
     id: 5,
     title: "Academics & Exams",
     description:
       "Marks entry, class and subject analytics, teacher-wise trends, class-average comparisons, approvals before publish, and AI-aided answer-sheet evaluation with feedback.",
     icon: BookOpenCheck,
+    imageUrl: f1,
+       iconbg:"#FFB896",
+    iconColor:"#000000",
   },
   {
     id: 6,
@@ -199,6 +222,9 @@ export const features2 = [
     description:
       "AI-assisted generation, drag-and-drop edits, conflict detection, teacher availability, period duration rules, and instant substitution alerts to teachers and students.",
     icon: CalendarDays,
+    imageUrl: f1,
+     iconbg: "#968BFF",
+    iconColor: "#ffffff",
   },
   {
     id: 7,
@@ -206,6 +232,9 @@ export const features2 = [
     description:
       "Personalized notification preferences for parents, calendar sync for exams and PTMs, automated reminders, multi-channel messaging (SMS, email, push, WhatsApp).",
     icon: PhoneOutgoing,
+    imageUrl: f1,
+       iconbg:"#FFB896",
+    iconColor:"#000000",
   },
   {
     id: 8,
@@ -213,6 +242,9 @@ export const features2 = [
     description:
       "Multi-board (NAAC/NBA/BCI/etc.) criteria management, AI score projections, milestone tracker with calendar sync, OCR search, versioning, approvals, and lock mode.",
     icon: CircleCheckBig,
+    imageUrl: f1,
+     iconbg: "#968BFF",
+    iconColor: "#ffffff",
   },
   {
     id: 9,
@@ -220,7 +252,13 @@ export const features2 = [
     description:
       "RBAC, field encryption, 2FA for admins, session timeouts, failed-attempt lockouts, daily backups, geo-redundant storage, and restore verification.",
     icon: ShieldCheck,
+    imageUrl: f1,
+       iconbg:"#FFB896",
+    iconColor:"#000000",
   },
+];
+
+export const features2 = [
 ];
 
 export const useCasesValues = [

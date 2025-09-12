@@ -90,7 +90,7 @@ const PricingSection: FC = () => {
     };
 
     return (
-        <section className="w-full py-16">
+        <section className="w-full py-5">
             {/* Billing Toggle */}
             <div className="flex justify-center items-center gap-4 mb-12">
                 <Label htmlFor="billing-switch" className={`text-sm font-medium ${billing === "half_yearly" ? "text-text-heading" : "text-gray-500"}`}>
@@ -117,7 +117,7 @@ const PricingSection: FC = () => {
                 {plans.map((plan) => {
                     const yearlyDiscountedPrice = calculateDiscountedPrice(
                         plan.price.yearly
-                    );
+                    ).toFixed(0)
 
                     return (
                         <div
@@ -142,7 +142,7 @@ const PricingSection: FC = () => {
                             <div className="my-6">
                                 {billing === "yearly" ? (
                                     <div className="flex items-end gap-2">
-                                        <p className="lg:text-4xl text-2xl font-bold text-text-heading">
+                                        <p className="xl:text-3xl text-2xl font-bold text-text-heading">
                                             Rs.{yearlyDiscountedPrice}
                                         </p>
                                         <p className="text-xl font-medium text-gray-400 line-through">
@@ -175,7 +175,7 @@ const PricingSection: FC = () => {
 
                             {/* CTA */}
                             <Button
-                                className={`mt-8 w-full rounded-lg py-2 font-medium text-sm transition-colors ${plan.popular
+                                className={`mt-8 w-full rounded-lg py-2 font-medium text-sm cursor-pointer transition-colors ${plan.popular
                                     ? "bg-[#968BFF] text-white hover:bg-violet-500"
                                     : "bg-[#968BFF]/50 text-black hover:text-white hover:bg-[#968BFF]"
                                     }`}

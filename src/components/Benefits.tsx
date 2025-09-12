@@ -44,7 +44,7 @@ const BenefitItem = ({
           <Icon className="w-8 h-8 text-text-heading" />
           <h3 className="text-2xl font-bold text-text-heading">{title}</h3>
         </div>
-        <p className="text-lg text-text-paragraph">{description}</p>
+        <p className="text-lg text-text-heading">{description}</p>
       </div>
     </div>
   );
@@ -54,14 +54,26 @@ const BenefitItem = ({
 const Benefits = () => {
   const [activeId, setActiveId] = useState(benefitsValues[0].id);
   const activeBenefit = benefitsValues.find((b) => b.id === activeId);
- 
+
   return (
-    <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-16 bg-benefits-bg">
+    <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-10 space-y-10  bg-[linear-gradient(90deg,#65B2DA_0%,#FFFFFF_100%)]">
       <Heading className="mb-12 text-center">Benefits</Heading>
 
       {/* DESKTOP VIEW - Two-column sticky layout */}
       <div className="hidden lg:grid max-w-7xl mx-auto grid-cols-2 gap-16">
-        {/* LEFT (STICKY IMAGE) */}
+       
+
+
+        <div>
+          {benefitsValues.map((benefit) => (
+            <BenefitItem
+              key={benefit.id}
+              {...benefit}
+              setActiveId={setActiveId}
+            />
+          ))}
+        </div>
+
         <div className="sticky top-32 h-96 flex items-center justify-center">
           <div className="relative w-full aspect-video transition-opacity duration-300">
             {activeBenefit && (
@@ -73,17 +85,6 @@ const Benefits = () => {
               />
             )}
           </div>
-        </div>
-
-        {/* RIGHT (SCROLLING CONTENT) */}
-        <div>
-          {benefitsValues.map((benefit) => (
-            <BenefitItem
-              key={benefit.id}
-              {...benefit}
-              setActiveId={setActiveId}
-            />
-          ))}
         </div>
       </div>
 

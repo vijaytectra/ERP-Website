@@ -105,8 +105,8 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <Card className="shadow-lg">
+    <div className="max-w-2xl mx-auto p-10">
+      <Card className="shadow-lg bg-black border-none">
         <CardHeader className="text-left">
           <CardTitle className="text-xl font-bold text-primary-web">Request A Demo</CardTitle>
         </CardHeader>
@@ -116,15 +116,15 @@ const ContactForm = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <FormField control={form.control} name="name" render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center text-text-heading">Full Name <span className='text-red-600'>*</span></FormLabel>
-                    <FormControl><Input placeholder="e.g., John Doe" {...field} className="bg-transparent border-0 border-b border-gray-300 rounded-none px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
+                    <FormLabel className="flex items-center text-white">Full Name <span className='text-red-600'>*</span></FormLabel>
+                    <FormControl><Input placeholder="e.g., John Doe" {...field} className="bg-white rounded-sm border-[1px] border-gray-300 px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
                     <FormMessage />
                   </FormItem>
                 )} />
                 <FormField control={form.control} name="institutionName" render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center text-text-heading">Institution Name <span className='text-red-600'>*</span></FormLabel>
-                    <FormControl><Input placeholder="e.g., Springfield University" {...field} className="bg-transparent border-0 border-b border-gray-300 rounded-none px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
+                    <FormLabel className="flex items-center text-white">Institution Name <span className='text-red-600'>*</span></FormLabel>
+                    <FormControl><Input placeholder="e.g., Springfield University" {...field} className="bg-white rounded-sm border-[1px] border-gray-300 px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
                     <FormMessage />
                   </FormItem>
                 )} />
@@ -132,31 +132,55 @@ const ContactForm = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <FormField control={form.control} name="email" render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center">Email Address <span className='text-red-600'>*</span></FormLabel>
-                    <FormControl><Input type="email" placeholder="e.g., john.doe@example.com" {...field} className="bg-transparent border-0 border-b border-gray-300 rounded-none px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
+                    <FormLabel className="flex items-center text-white">Email Address <span className='text-red-600'>*</span></FormLabel>
+                    <FormControl><Input type="email" placeholder="e.g., john.doe@example.com" {...field} className="bg-white rounded-sm border-[1px] border-gray-300 px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
                     <FormMessage />
                   </FormItem>
                 )} />
-                <FormField control={form.control} name="mobileNumber" render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="flex items-center">Mobile Number <span className='text-red-600'>*</span></FormLabel>
-                    <FormControl><Input type="tel" placeholder="e.g., +1 234 567 890" {...field} className="bg-transparent border-0 border-b border-gray-300 rounded-none px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )} />
+                <FormField
+                  control={form.control}
+                  name="mobileNumber"
+                  render={({ field }) => {
+                    // Create a new onChange handler to intercept and sanitize the input
+                    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+                      // Use a regular expression to remove any non-digit characters
+                      const numericValue = e.target.value.replace(/[^0-9]/g, '');
+                      // Call the original onChange from the field prop with the sanitized value
+                      field.onChange(numericValue);
+                    };
+
+                    return (
+                      <FormItem>
+                        <FormLabel className="flex items-center text-white">
+                          Mobile Number <span className='text-red-600'>*</span>
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            type="tel" // Keep 'tel' for better mobile UX
+                            placeholder="e.g., 9876543210"
+                            {...field} // Spread the original field props
+                            onChange={handleInputChange} // Override the onChange handler
+                            className="bg-white rounded-sm border-[1px] border-gray-300 px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    );
+                  }}
+                />
               </div>
               <FormField control={form.control} name="message" render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message <span className='text-red-600'>*</span></FormLabel>
-                  <FormControl><Textarea placeholder="Please describe your inquiry..." rows={4} {...field} className="bg-transparent border-0 border-b border-gray-300 rounded-none px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
-                  <div className="flex justify-between items-center"><FormMessage /><span className="text-xs text-gray-500 ml-auto">{field.value?.length || 0}/500</span></div>
+                  <FormLabel className='text-white'>Message <span className='text-red-600'>*</span></FormLabel>
+                  <FormControl><Textarea placeholder="Please describe your inquiry..." rows={4} {...field} className="bg-white rounded-sm border-[1px] border-gray-300 px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
+                  <div className="flex justify-between items-center"><FormMessage /><span className="text-xs text-white ml-auto">{field.value?.length || 0}/500</span></div>
                 </FormItem>
               )} />
               <FormField control={form.control} name="consent" render={({ field }) => (
                 <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                  <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} className="mt-0.5 border-black" /></FormControl>
+                  <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} className="mt-0.5 border-white" /></FormControl>
                   <div className="space-y-1 leading-none">
-                    <label htmlFor={field.name} className="text-sm font-medium leading-snug text-gray-700 cursor-pointer">
+                    <label htmlFor={field.name} className="text-sm font-medium leading-snug text-white cursor-pointer">
                       I agree to the{' '}
                       <button type="button" onClick={(e) => { e.stopPropagation(); setIsPrivacyOpen(true); }} className="text-blue-600 underline hover:text-blue-800 focus:outline-none">
                         Privacy Policy
@@ -180,7 +204,7 @@ const ContactForm = () => {
                   <span className="font-medium">{state.errors || state.message}</span>
                 </div>
               )}
-              <p className="text-xs text-gray-500 text-center">* All fields are required</p>
+              <p className="text-xs text-white text-center">* All fields are required</p>
             </form>
           </Form>
         </CardContent>

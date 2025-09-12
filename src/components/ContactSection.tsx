@@ -4,8 +4,10 @@ import Heading from './Heading'
 
 const ContactSection = () => {
     return (
-        <div className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-16 bg-benefits-bg mb-10">
-            <div className="flex lg:flex-row flex-col gap-8">
+        <div
+            className="relative flex flex-col items-center justify-center  bg-[linear-gradient(90deg,#FFFFFF_0%,#65B2DA_100%)] px-5 lg:px-10 py-16 mb-10"
+
+        >       <div className="flex lg:flex-row flex-col gap-16">
 
                 <div className="w-full lg:w-1/2 flex flex-col gap-5">
                     <Heading className=' text-2xl lg:text-3xl'>
@@ -17,7 +19,7 @@ const ContactSection = () => {
 
 
                 </div>
-                <div className="w-full lg:w-1/2">
+                <div className="w-full lg:w-1/2  lg:absolute lg:right-0 lg:-top-68">
 
                     <ContactForm />
                 </div>

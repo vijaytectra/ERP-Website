@@ -5,8 +5,8 @@ import { useCasesValues } from '@/utils/consts'
 
 const UseCases = () => {
     return (
-        <div className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-16 bg-usecasees-bg">
-            <Heading className="mb-12 text-center text-white">Use Cases</Heading>
+        <div className="relative flex flex-col items-center space-y-10 justify-center px-5 lg:px-10 py-10 bg-usecasees-bg">
+            <Heading className=" text-center text-white">Use Cases</Heading>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 ">
                 {useCasesValues.map((item) => (
