@@ -17,11 +17,10 @@ export default function Home() {
         <WhyUs />
       </section>
 
-      {/* --- This is the change --- */}
       <section id="benefits">
-        <Benefits  />
+        <Benefits />
       </section>
-      {/* ------------------------- */}
+
 
       <section id="features">
         <Features />
@@ -35,7 +34,7 @@ export default function Home() {
         <Pricing />
       </section>
 
-      <section id="contact" className="pt-60">
+      <section id="contact" className="lg:pt-60">
         <ContactSection />
       </section>
     </div>

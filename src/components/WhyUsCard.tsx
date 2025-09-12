@@ -12,7 +12,7 @@ interface WhyUsCardProps {
 
 const WhyUsCard: React.FC<WhyUsCardProps> = ({ title, description, icon: Icon, iconbg, iconColor }) => {
     return (
-        <div className="flex items-start gap-4 p-4 rounded-lg border-b-[1px] transition hover:bg-gray-50">
+        <div className="flex items-start gap-4 p-4  border-b-[1px] border-gray-400 rounded-none transition hover:bg-gray-50">
             <div className={`flex-shrink-0  p-3  rounded-full`}  style={{ backgroundColor: iconbg }} >
                 <Icon className={`text-[${iconColor}] text-4xl`} style={{ color: iconColor }}/>
             </div>

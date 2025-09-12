@@ -4,9 +4,9 @@ import { Button } from "./ui/button";
 
 const HeroSection = () => {
     return (
-        <section className="flex flex-col items-center justify-center space-y-10  px-5 lg:px-10 py-10  bg-[linear-gradient(1deg,#65B2DAB3_0.83%,rgba(255,255,255,0.7)_99.12%)]">
+        <section className="flex flex-col items-center justify-center space-y-16  px-5 lg:px-10 py-10  bg-[linear-gradient(1deg,#65B2DAB3_0.83%,rgba(255,255,255,0.7)_99.12%)]">
             {/* Text Content */}
-            <div className="max-w-4xl text-center space-y-6">
+            <div className="max-w-4xl text-center space-y-8">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-heading leading-tight">
                     All-in-One ERP for Schools, Colleges, and Preschools — Admissions to{" "}
                     <span className="text-primary-web">Accreditation, Automated</span>

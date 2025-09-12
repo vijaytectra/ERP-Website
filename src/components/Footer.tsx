@@ -16,7 +16,7 @@ const Footer = () => {
           {/* Column 1: Logo and Tagline */}
           <div className="space-y-4">
             <Image
-              src="/logosvg.svg" // Replace with your white logo path
+              src="/logo-white.svg" // Replace with your white logo path
               alt="EduSuite Logo"
               width={160}
               height={50}

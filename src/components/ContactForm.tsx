@@ -105,7 +105,7 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-10">
+    <div className="max-w-2xl mx-auto lg:p-10">
       <Card className="shadow-lg bg-black border-none">
         <CardHeader className="text-left">
           <CardTitle className="text-xl font-bold text-primary-web">Request A Demo</CardTitle>

@@ -116,7 +116,7 @@ const Navbar = () => {
                         className="block cursor-pointer"
                     >
                         <Image
-                            src="/logoblack.svg"
+                            src="/logo-black.svg"
                             alt="ERP Logo"
                             width={160}
                             height={60}
@@ -166,7 +166,7 @@ const Navbar = () => {
                                 aria-label="Open navigation menu"
                                 className="p-2 text-primary"
                             >
-                                <Menu size={28} className="text-black" />
+                                <Menu size={28} className="text-primary-web" />
                             </button>
                         </SheetTrigger>
                         <SheetContent side="left" className="p-0">

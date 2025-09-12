@@ -6,13 +6,13 @@ import Image from 'next/image'
 
 const WhyUs = () => {
     return (
-        <div className='flex flex-col items-center justify-center space-y-10   px-5 lg:px-10 py-10 bg-white"'>
+        <div className='flex flex-col items-center justify-center space-y-16   px-5 lg:px-10 py-10 bg-white"'>
             <Heading className=''>Why choose Our ERP</Heading>
 
-            <div className="flex flex-col md:flex-row gap-5 ">
+            <div className="flex flex-col md:flex-row gap-16 ">
                 <div className="relative w-full  ">
                     <Image
-                        src="/whyus1.svg"
+                        src="/why.svg"
                         alt="Hero Illustration"
                         width={1200}
                         height={700}

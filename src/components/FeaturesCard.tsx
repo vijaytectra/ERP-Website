@@ -14,7 +14,7 @@ interface FeaturesCardProps {
 }
 const FeaturesCard: React.FC<FeaturesCardProps> = ({ title, description, icon: Icon, imageUrl, iconbg, iconColor }) => {
     return (
-        <div className='flex flex-col gap-8 p-4 rounded-lg shadow-lg transition hover:bg-gray-50'>
+        <div className='flex flex-col gap-8 p-4 rounded-lg shadow-2xl transition hover:bg-gray-50'>
             <div className="relative w-full aspect-video transition-opacity duration-300">
 
                 <Image
@@ -22,7 +22,7 @@ const FeaturesCard: React.FC<FeaturesCardProps> = ({ title, description, icon: I
                     alt="Hero Illustration"
                     width={1200}
                     height={700}
-                    className="w-60 h-48 object-contain drop-shadow-lg"
+                    className="w-full h-48 object-contain  drop-shadow-lg"
                     priority
                 />
 
