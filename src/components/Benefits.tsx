@@ -56,7 +56,7 @@ const Benefits = () => {
   const activeBenefit = benefitsValues.find((b) => b.id === activeId);
 
   return (
-    <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-10 space-y-16 bg-[#65B2DA]  lg:bg-[linear-gradient(90deg,#65B2DA_0%,#FFFFFF_100%)]">
+    <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-10 space-y-16 bg-[#65B2DA]  lg:bg-[linear-gradient(90deg,#FFFFFF_0%,#65B2DA_90%)]">
       <Heading className=" text-center">Benefits</Heading>
 
       {/* DESKTOP VIEW - Two-column sticky layout */}

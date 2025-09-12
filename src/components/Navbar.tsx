@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
@@ -9,8 +10,9 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import { navLinks } from "@/utils/consts";
+import { navLinks } from "@/utils/consts"; // Assuming this is your links array
 import { Button } from "./ui/button";
+import { motion } from "motion/react"; // <-- Make sure to import motion
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -19,38 +21,43 @@ const Navbar = () => {
     const pathname = usePathname();
 
     const handleLinkClick = (href: string) => {
+        // Always close the mobile navigation sheet first.
         setOpen(false);
 
-        if (href === "#home") {
-            // Navigate to home page
-            router.push("/");
-            setActiveSection("#home");
-        } else if (href.startsWith("#")) {
-            // If we're not on the home page, navigate to home first
-            if (pathname !== "/") {
-                router.push(`/${href}`);
-            } else {
-                // We're on home page, scroll to section
-                const element = document.getElementById(href.substring(1));
-                if (element) {
-                    element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-                }
-            }
-        } else {
-            // Navigate to other pages
-            router.push(`/${href}`);
+        // Case 1: The link is for a different page (e.g., "/about").
+        if (!href.startsWith("#")) {
+            router.push(href);
+            return;
         }
+
+        // Case 2: The link is an anchor on another page.
+        // Navigate to the home page with the hash.
+        if (pathname !== "/") {
+            router.push(`/${href}`);
+            return;
+        }
+
+        // Case 3: We are on the home page, and it's an anchor link.
+        // Use a small timeout to prevent a race condition with the Sheet's
+        // closing animation, which can otherwise block the scroll command.
+        setTimeout(() => {
+            const elementId = href.substring(1);
+            if (elementId === "home") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+                const element = document.getElementById(elementId);
+                element?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            }
+        }, 100); // 100ms is a safe delay for the animation to start.
     };
 
+    // IntersectionObserver for active section on scroll (Your logic is good)
     useEffect(() => {
-        // Set active section based on current pathname
         if (pathname === "/") {
-            // We're on home page, set up intersection observer
             const sections = document.querySelectorAll("section[id]");
-
             if (sections.length === 0) {
                 setActiveSection("#home");
                 return;
@@ -58,56 +65,48 @@ const Navbar = () => {
 
             const observerOptions = {
                 root: null,
-                rootMargin: "-80px 0px -80px 0px",
+                rootMargin: "-80px 0px -80px 0px", // Adjust margin to trigger earlier/later
                 threshold: 0.1,
             };
 
             const observer = new IntersectionObserver((entries) => {
-                // Find the entry with the largest intersection ratio
-                const visibleEntries = entries.filter(entry => entry.isIntersecting);
-
+                const visibleEntries = entries.filter((entry) => entry.isIntersecting);
                 if (visibleEntries.length > 0) {
-                    // Sort by intersection ratio and take the most visible one
-                    visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-                    const mostVisible = visibleEntries[0];
-                    setActiveSection(`#${mostVisible.target.id}`);
+                    visibleEntries.sort(
+                        (a, b) => b.intersectionRatio - a.intersectionRatio
+                    );
+                    setActiveSection(`#${visibleEntries[0].target.id}`);
                 }
             }, observerOptions);
 
-            sections.forEach((section) => {
-                observer.observe(section);
-            });
-
+            sections.forEach((section) => observer.observe(section));
             return () => observer.disconnect();
         } else {
-            // We're on a different page, find matching navLink
-            const currentNavLink = navLinks.find(link => `/${link.href}` === pathname || link.href === pathname);
+            const currentNavLink = navLinks.find(
+                (link) => `/${link.href}` === pathname || link.href === pathname
+            );
             if (currentNavLink) {
                 setActiveSection(currentNavLink.href);
             }
         }
     }, [pathname]);
 
-    // Handle hash changes (when user navigates directly via URL with hash)
+    // Handle direct navigation to hash links (Your logic is good)
     useEffect(() => {
         const handleHashChange = () => {
             if (window.location.hash) {
                 setActiveSection(window.location.hash);
             }
         };
-
-        window.addEventListener('hashchange', handleHashChange);
-
-        // Check for hash on initial load
+        window.addEventListener("hashchange", handleHashChange);
         if (window.location.hash) {
             setActiveSection(window.location.hash);
         }
-
-        return () => window.removeEventListener('hashchange', handleHashChange);
+        return () => window.removeEventListener("hashchange", handleHashChange);
     }, []);
 
     return (
-        <nav className="w-full shadow-[0_0_4px_0_#968bff40]  ">
+        <nav className="w-full sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-[0_0_4px_0_#968bff40]">
             <div className="max-w-7xl mx-auto px-3 py-2 md:py-5 lg:px-10 lg:py-1 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex-shrink-0">
@@ -126,23 +125,36 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* Desktop Navigation Links */}
+                {/* Desktop Navigation Links with Animated Indicator */}
                 <ul className="hidden lg:flex flex-row items-center space-x-8 text-sm">
                     {navLinks.map(({ label, href }) => {
-                        const isActive = href === activeSection ||
-                            (pathname !== "/" && (`/${href}` === pathname || href === pathname));
+                        const isActive =
+                            href === activeSection ||
+                            (pathname !== "/" &&
+                                (`/${href}` === pathname || href === pathname));
                         return (
-                            <li key={label}>
+                            <li key={label} className="relative">
                                 <button
                                     onClick={() => handleLinkClick(href)}
                                     className={`flex items-center gap-3 font-medium transition cursor-pointer ${isActive
-                                        ? "text-primary-web font-medium"
+                                        ? "text-primary-web"
                                         : "text-black hover:text-primary-web/80"
                                         }`}
                                     aria-current={isActive ? "page" : undefined}
                                 >
                                     {label}
                                 </button>
+                                {isActive && (
+                                    <motion.div
+                                        layoutId="active-nav-indicator"
+                                        className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary-web"
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 350,
+                                            damping: 30,
+                                        }}
+                                    />
+                                )}
                             </li>
                         );
                     })}
@@ -152,7 +164,7 @@ const Navbar = () => {
                 <div className="hidden lg:block">
                     <Button
                         onClick={() => handleLinkClick("#contact")}
-                        className="rounded-4xl bg-primary-web text-white font-semibold px-4 py-2 hover:bg-primary-web/95 cursor-pointer transition"
+                        className="rounded-4xl bg-[#958AFF] text-white  px-4 py-2 hover:bg-[#958AFF]/95 cursor-pointer transition"
                     >
                         Schedule a Demo
                     </Button>
@@ -170,13 +182,13 @@ const Navbar = () => {
                             </button>
                         </SheetTrigger>
                         <SheetContent side="left" className="p-0">
-                            <SheetTitle className="sr-only">
-                                Navigation Menu
-                            </SheetTitle>
+                            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                             <div className="p-6 flex flex-col gap-3">
                                 {navLinks.map(({ label, href }) => {
-                                    const isActive = href === activeSection ||
-                                        (pathname !== "/" && (`/${href}` === pathname || href === pathname));
+                                    const isActive =
+                                        href === activeSection ||
+                                        (pathname !== "/" &&
+                                            (`/${href}` === pathname || href === pathname));
                                     return (
                                         <button
                                             key={label}
