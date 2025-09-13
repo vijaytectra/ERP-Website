@@ -19,7 +19,7 @@ const containerVariants = {
 const UseCases = () => {
   return (
     <motion.div
-      className="relative flex flex-col items-center space-y-10 justify-center px-5 lg:px-10 py-10 bg-usecasees-bg"
+      className="relative  flex flex-col items-center space-y-10 justify-center px-5 lg:px-10 py-5 bg-usecasees-bg"
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
@@ -27,7 +27,7 @@ const UseCases = () => {
     >
       <Heading variant="wave" className="text-center text-white">Use Cases</Heading>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
+      <div className="grid max-w-4xl grid-cols-1 sm:grid-cols-2  gap-16">
         {useCasesValues.map((item) => (
           <UseCaseCard
             key={item.id}

@@ -30,7 +30,7 @@ const UseCaseCard: FC<UseCaseCardProps> = ({
 }) => {
   return (
     <motion.div
-      className={`rounded-2xl shadow-md p-6 flex flex-col gap-3 cursor-pointer ${className}`}
+      className={`rounded-2xl shadow-md p-6 flex flex-col gap-8 cursor-pointer ${className}`}
       style={{ backgroundColor: bgColor }}
       variants={cardVariants}
       whileHover={{
@@ -41,13 +41,13 @@ const UseCaseCard: FC<UseCaseCardProps> = ({
       whileTap={{ scale: 0.98 }}
     >
       <motion.div
-        className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow"
+        className="w-16 h-16 flex items-center justify-center rounded-full bg-white shadow"
         whileHover={{
           y: [0, -3, 0],
           transition: { duration: 0.4 },
         }}
       >
-        <Icon className="w-6 h-6 text-text-heading" />
+        <Icon className="w-10 h-10 text-text-heading" />
       </motion.div>
 
       <h3 className="text-lg font-semibold text-text-heading">{title}</h3>

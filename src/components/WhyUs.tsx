@@ -9,7 +9,7 @@ import { motion } from "motion/react";
 
 const WhyUs = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center space-y-16 px-5 lg:px-10 py-20 bg-white overflow-hidden">
+    <div className="relative max-w-7xl mx-auto flex flex-col items-center justify-center space-y-5 px-5 lg:px-10 py-5 bg-white overflow-hidden">
       {/* Animated background elements */}
       <motion.div
         className="absolute -top-40 -left-40 w-80 h-80 rounded-full bg-primary-web/10 blur-3xl"
@@ -48,7 +48,7 @@ const WhyUs = () => {
         <Heading variant="fade">Why choose Our ERP</Heading>
       </motion.div>
 
-      <div className="flex flex-col md:flex-row gap-16 relative z-10">
+      <div className="flex flex-col md:flex-row gap-5 lg:gap-10 justify-center items-center relative z-10">
         {/* Enhanced Image Animation */}
         <motion.div
           className="relative w-full"
@@ -67,13 +67,14 @@ const WhyUs = () => {
               repeat: Infinity,
               ease: "easeInOut"
             }}
+            className=" flex flex-col h-96 justify-center items-center"
           >
             <Image
               src="/why.svg"
               alt="Why Choose Our ERP Illustration"
               width={1200}
               height={700}
-              className="w-full h-auto object-contain drop-shadow-lg"
+              className="w-full h-96 object-contain object-center drop-shadow-lg"
               priority
             />
           </motion.div>
@@ -90,7 +91,7 @@ const WhyUs = () => {
 
         {/* Enhanced Cards with Stagger Animation */}
         <motion.div
-          className="grid grid-cols-1 gap-6"
+          className="grid grid-cols-1 gap-2"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}

@@ -287,7 +287,7 @@ const Heading: React.FC<HeadingProps> = ({
 
       {/* Optional animated underline */}
       <motion.div
-        className="h-1 bg-gradient-to-r from-web to-primary-web rounded-full mt-2"
+        className="h-1 bg-gradient-to-r from-web to-white rounded-full mt-2"
         initial={{ width: 0, opacity: 0 }}
         animate={isInView ? { width: "60%", opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: delay + 0.5, ease: "easeOut" }}

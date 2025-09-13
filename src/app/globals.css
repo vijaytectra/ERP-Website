@@ -173,3 +173,20 @@ body {
     border-color: var(--color-web);
   }
 }
+
+/* Add to your global.css or styles/globals.css */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-flow {
+  animation: gradientFlow 15s ease infinite;
+}

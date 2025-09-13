@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 
 const Pricing: FC = () => {
   return (
-    <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-10 space-y-8 bg-white">
+    <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-5 space-y-8 bg-white">
       {/* Heading with Fade + Slide Animation */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}

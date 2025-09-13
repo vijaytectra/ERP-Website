@@ -53,11 +53,11 @@ const Benefits = () => {
   const activeBenefit = benefitsValues.find((b) => b.id === activeId);
 
   return (
-    <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-20 space-y-16 bg-[#65B2DA] lg:bg-[linear-gradient(90deg,#65B2DA_0%,#FFFFFF_100%)]">
+    <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-5 space-y-16 bg-[#65B2DA] lg:bg-[linear-gradient(90deg,#65B2DA_0%,#FFFFFF_100%)]">
       <Heading variant="fade" className="text-center">Benefits</Heading>
 
       {/* DESKTOP VIEW */}
-      <div className="hidden lg:grid  mx-auto grid-cols-2 gap-16">
+      <div className="hidden lg:grid max-w-7xl mx-auto grid-cols-2 gap-5">
         {/* Left column with scroll-triggered fade */}
         <div>
           {benefitsValues.map((benefit) => (
@@ -65,33 +65,35 @@ const Benefits = () => {
           ))}
         </div>
 
-        {/* Right column with animated image */}
-        <div className="sticky top-20 h-96 flex items-center justify-center">
-          <div className="relative w-full aspect-video">
-            <AnimatePresence mode="wait">
-              {activeBenefit && (
-                <motion.div
-                  key={activeBenefit.id}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={activeBenefit.imageUrl}
-                    alt={activeBenefit.title}
-                    fill
-                    className="object-contain"
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
+        {/* Right column with centered sticky image */}
+        <div className="relative">
+          <div className="sticky top-0 h-screen flex items-center justify-center">
+            <div className="relative w-full max-w-2xl aspect-video">
+              <AnimatePresence mode="wait">
+                {activeBenefit && (
+                  <motion.div
+                    key={activeBenefit.id}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={activeBenefit.imageUrl}
+                      alt={activeBenefit.title}
+                      fill
+                      className="object-contain object-center"
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* MOBILE VIEW */}
+      {/* MOBILE VIEW - Unchanged */}
       <div className="lg:hidden w-full max-w-md mx-auto">
         <div className="flex flex-col gap-12">
           {benefitsValues.map((benefit) => {
@@ -111,7 +113,7 @@ const Benefits = () => {
                     src={benefit.imageUrl}
                     alt={benefit.title}
                     fill
-                    className="object-contain"
+                    className="object-contain object-left"
                   />
                 </div>
 

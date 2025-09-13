@@ -22,7 +22,7 @@ const WhyUsCard: React.FC<WhyUsCardProps> = ({
 }) => {
   return (
     <motion.div
-      className="flex items-start gap-4 p-6 rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 group relative overflow-hidden"
+      className="flex items-start gap-4 p-3 rounded-2xl bg-white border border-gray-100 shadow-2xs hover:shadow-md transition-all duration-300 group relative overflow-hidden"
       whileHover={{ 
         y: -10,
         scale: 1.02,
