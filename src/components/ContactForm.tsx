@@ -117,14 +117,14 @@ const ContactForm = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <FormField control={form.control} name="name" render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center text-white">Full Name <span className='text-red-600'>*</span></FormLabel>
+                    <FormLabel className="flex items-center text-white font-medium">Full Name <span className='text-red-600'>*</span></FormLabel>
                     <FormControl><Input placeholder="e.g., John Doe" {...field} className="bg-white rounded-sm border-[1px] border-gray-300 px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
                     <FormMessage />
                   </FormItem>
                 )} />
                 <FormField control={form.control} name="institutionName" render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center text-white">Institution Name <span className='text-red-600'>*</span></FormLabel>
+                    <FormLabel className="flex items-center text-white font-medium">Institution Name <span className='text-red-600'>*</span></FormLabel>
                     <FormControl><Input placeholder="e.g., Springfield University" {...field} className="bg-white rounded-sm border-[1px] border-gray-300 px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
                     <FormMessage />
                   </FormItem>
@@ -133,7 +133,7 @@ const ContactForm = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <FormField control={form.control} name="email" render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center text-white">Email Address <span className='text-red-600'>*</span></FormLabel>
+                    <FormLabel className="flex items-center text-white font-medium">Email Address <span className='text-red-600'>*</span></FormLabel>
                     <FormControl><Input type="email" placeholder="e.g., john.doe@example.com" {...field} className="bg-white rounded-sm border-[1px] border-gray-300 px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
                     <FormMessage />
                   </FormItem>
@@ -152,7 +152,7 @@ const ContactForm = () => {
 
                     return (
                       <FormItem>
-                        <FormLabel className="flex items-center text-white">
+                        <FormLabel className="flex items-center text-white font-medium">
                           Mobile Number <span className='text-red-600'>*</span>
                         </FormLabel>
                         <FormControl>
@@ -172,7 +172,7 @@ const ContactForm = () => {
               </div>
               <FormField control={form.control} name="message" render={({ field }) => (
                 <FormItem>
-                  <FormLabel className='text-white'>Message <span className='text-red-600'>*</span></FormLabel>
+                  <FormLabel className='text-white font-medium'>Message <span className='text-red-600'>*</span></FormLabel>
                   <FormControl><Textarea placeholder="Please describe your inquiry..." rows={4} {...field} className="bg-white rounded-sm border-[1px] border-gray-300 px-1 h-auto focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-blue-500 transition-colors" /></FormControl>
                   <div className="flex justify-between items-center"><FormMessage /><span className="text-xs text-white ml-auto">{field.value?.length || 0}/500</span></div>
                 </FormItem>
@@ -181,7 +181,7 @@ const ContactForm = () => {
                 <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                   <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} className="mt-0.5 border-white" /></FormControl>
                   <div className="space-y-1 leading-none">
-                    <label htmlFor={field.name} className="text-sm font-bold leading-snug text-white cursor-pointer">
+                    <label htmlFor={field.name} className="text-sm font-medium leading-snug text-white cursor-pointer">
                       I agree to the{' '}
                       <button type="button" onClick={(e) => { e.stopPropagation(); setIsPrivacyOpen(true); }} className="text-blue-600 underline hover:text-blue-800 focus:outline-none">
                         Privacy Policy
@@ -202,7 +202,7 @@ const ContactForm = () => {
               {!state.success && state.message && (
                 <div className="flex items-center p-3 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
                   <AlertCircle className="flex-shrink-0 inline w-4 h-4 mr-3" />
-                  <span className="font-bold">{state.errors || state.message}</span>
+                  <span className="font-medium">{state.errors || state.message}</span>
                 </div>
               )}
               <p className="text-xs text-white text-center">* All fields are required</p>

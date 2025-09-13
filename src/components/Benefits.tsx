@@ -42,7 +42,7 @@ const BenefitItem = ({
           <Icon className="w-8 h-8 text-text-heading" />
           <h3 className="text-2xl font-bold text-text-heading">{title}</h3>
         </div>
-        <p className="text-base font-medium text-text-heading">{description}</p>
+        <p className="text-sm font-medium text-text-heading/90">{description}</p>
       </div>
     </motion.div>
   );

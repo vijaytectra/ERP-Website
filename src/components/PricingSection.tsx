@@ -310,7 +310,7 @@ const PricingSection: FC = () => {
               >
                 <Button
                   aria-label="Get started"
-                  className={`w-full rounded-lg py-2 font-bold text-sm cursor-pointer transition-colors ${plan.popular
+                  className={`w-full rounded-lg py-2 font-medium text-sm cursor-pointer transition-colors ${plan.popular
                       ? "bg-[#968BFF] text-white hover:bg-violet-500"
                       : "bg-[#968BFF]/50 text-black hover:text-white hover:bg-[#968BFF]"
                     }`}

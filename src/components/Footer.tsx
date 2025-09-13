@@ -154,7 +154,7 @@ const Footer = () => {
                     >
                       <Link
                         href={href}
-                        className="text-sm text-gray-300 hover:text-white transition-colors duration-300 flex items-center group"
+                        className="text-sm text-white hover:text-white transition-colors duration-300 flex items-center group"
                       >
                         <motion.div
                           className="w-0 h-0.5 bg-web mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"
@@ -191,27 +191,8 @@ const Footer = () => {
                   animate={shouldReduceMotion ? {} : (isInView ? { x: 0, opacity: 1 } : {})}
                   transition={{ delay: 0.7, duration: 0.4 }}
                 >
-                  <motion.div
-                    className="p-2 rounded-full bg-primary-web/10"
-                    whileHover={shouldReduceMotion ? {} : {
-                      scale: 1.1,
-                      backgroundColor: "rgba(149, 138, 255, 0.2)",
-                      transition: { duration: 0.2 }
-                    }}
-                    style={{ willChange: 'transform, background-color' }}
-                  >
-                    <Phone size={14} className="text-primary-web" />
-                  </motion.div>
-                  <motion.a
-                    href="tel:+91-9952977470"
-                    className="text-gray-300 hover:text-white transition-colors duration-200"
-                    whileHover={shouldReduceMotion ? {} : {
-                      x: 3,
-                      transition: { duration: 0.2 }
-                    }}
-                  >
-                    +91-9952977470
-                  </motion.a>
+
+
                 </motion.li>
                 <motion.li
                   className="flex items-center gap-3"
@@ -220,7 +201,7 @@ const Footer = () => {
                   transition={{ delay: 0.8, duration: 0.4 }}
                 >
                   <motion.div
-                    className="p-2 rounded-full bg-accent/10"
+                    className="p-2 rounded-full "
                     whileHover={shouldReduceMotion ? {} : {
                       scale: 1.1,
                       backgroundColor: "rgba(124, 111, 255, 0.2)",
@@ -231,20 +212,23 @@ const Footer = () => {
                     <Mail size={14} className="text-accent" />
                   </motion.div>
                   <motion.a
-                    href="mailto:sales@tectratechnologies.com"
-                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                    href="mailto:teamedusuite@yahoo.com"
+                    className="text-white hover:text-white/90 transition-colors duration-200"
                     whileHover={shouldReduceMotion ? {} : {
                       x: 3,
                       transition: { duration: 0.2 }
                     }}
                   >
-                    sales@tectratechnologies.com
+                    teamedusuite@yahoo.com
+
                   </motion.a>
                 </motion.li>
               </ul>
             </div>
           </motion.div>
         </motion.div>
+
+     
 
         {/* Bottom Bar with Animated Border */}
         <motion.div
@@ -263,7 +247,7 @@ const Footer = () => {
 
           {/* Copyright Notice */}
           <motion.p
-            className="text-gray-400 order-2 sm:order-1 mt-4 sm:mt-0"
+            className="text-gray-100 order-2 sm:order-1 mt-4 sm:mt-0"
             initial={shouldReduceMotion ? {} : { x: -10, opacity: 0 }}
             animate={shouldReduceMotion ? {} : (isInView ? { x: 0, opacity: 1 } : {})}
             transition={{ delay: 1.1, duration: 0.5 }}
