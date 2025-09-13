@@ -54,7 +54,7 @@ const Benefits = () => {
 
   return (
     <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-20 space-y-16 bg-[#65B2DA] lg:bg-[linear-gradient(90deg,#FFFFFF_0%,#65B2DA_90%)]">
-      <Heading variant="wave" className="text-center">Benefits</Heading>
+      <Heading variant="fade" className="text-center">Benefits</Heading>
 
       {/* DESKTOP VIEW */}
       <div className="hidden lg:grid max-w-7xl mx-auto grid-cols-2 gap-16">

@@ -15,7 +15,7 @@ const Pricing: FC = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <Heading variant="wave" className="text-center text-black">Choose Your Plan</Heading>
+        <Heading variant="fade" className="text-center text-black">Choose Your Plan</Heading>
       </motion.div>
 
       {/* Paragraph with Slight Delay */}

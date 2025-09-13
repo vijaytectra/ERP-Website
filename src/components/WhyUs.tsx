@@ -45,7 +45,7 @@ const WhyUs = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <Heading variant="wave">Why choose Our ERP</Heading>
+        <Heading variant="fade">Why choose Our ERP</Heading>
       </motion.div>
 
       <div className="flex flex-col md:flex-row gap-16 relative z-10">

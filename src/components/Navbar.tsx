@@ -9,37 +9,37 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
-import { navLinks } from "@/utils/consts"; // Assuming this is your links array
+import { Menu, X } from "lucide-react";
+import { navLinks } from "@/utils/consts";
 import { Button } from "./ui/button";
-import { motion } from "motion/react"; // <-- Make sure to import motion
+import { motion, useScroll, useMotionValueEvent } from "motion/react";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [activeSection, setActiveSection] = useState<string>("#home");
+    const [isScrolled, setIsScrolled] = useState(false);
     const router = useRouter();
     const pathname = usePathname();
+    const { scrollY } = useScroll();
+
+    // Simple scroll detection
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        setIsScrolled(latest > 50);
+    });
 
     const handleLinkClick = (href: string) => {
-        // Always close the mobile navigation sheet first.
         setOpen(false);
 
-        // Case 1: The link is for a different page (e.g., "/about").
         if (!href.startsWith("#")) {
             router.push(href);
             return;
         }
 
-        // Case 2: The link is an anchor on another page.
-        // Navigate to the home page with the hash.
         if (pathname !== "/") {
             router.push(`/${href}`);
             return;
         }
 
-        // Case 3: We are on the home page, and it's an anchor link.
-        // Use a small timeout to prevent a race condition with the Sheet's
-        // closing animation, which can otherwise block the scroll command.
         setTimeout(() => {
             const elementId = href.substring(1);
             if (elementId === "home") {
@@ -51,10 +51,9 @@ const Navbar = () => {
                     block: "start",
                 });
             }
-        }, 100); // 100ms is a safe delay for the animation to start.
+        }, 100);
     };
 
-    // IntersectionObserver for active section on scroll (Your logic is good)
     useEffect(() => {
         if (pathname === "/") {
             const sections = document.querySelectorAll("section[id]");
@@ -65,7 +64,7 @@ const Navbar = () => {
 
             const observerOptions = {
                 root: null,
-                rootMargin: "-80px 0px -80px 0px", // Adjust margin to trigger earlier/later
+                rootMargin: "-80px 0px -80px 0px",
                 threshold: 0.1,
             };
 
@@ -91,7 +90,6 @@ const Navbar = () => {
         }
     }, [pathname]);
 
-    // Handle direct navigation to hash links (Your logic is good)
     useEffect(() => {
         const handleHashChange = () => {
             if (window.location.hash) {
@@ -106,13 +104,29 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="w-full sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-[0_0_4px_0_#968bff40]">
-            <div className="max-w-7xl mx-auto px-3 py-2 md:py-5 lg:px-10 lg:py-1 flex items-center justify-between">
-                {/* Logo */}
-                <div className="flex-shrink-0">
-                    <button
+        <motion.nav
+            className={`w-full sticky top-0 z-50 transition-all duration-300 ${isScrolled
+                ? "bg-white/95 backdrop-blur-md shadow-lg"
+                : "bg-white/80 backdrop-blur-sm shadow-[0_0_4px_0_#968bff40]"
+                }`}
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+            <div className="max-w-7xl mx-auto px-3 md:py-5 lg:px-10 lg:py-1 flex items-center justify-between">
+
+                {/* Simple Logo Animation */}
+                <motion.div
+                    className="flex-shrink-0"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                    <motion.button
                         onClick={() => handleLinkClick("#home")}
-                        className="block cursor-pointer"
+                        className="block cursor-pointer focus:outline-none"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.2 }}
                     >
                         <Image
                             src="/logo-black.svg"
@@ -122,11 +136,16 @@ const Navbar = () => {
                             className="object-contain w-[160px] h-[60px] md:w-[150px] md:h-[60px] lg:w-[180px] lg:h-[70px]"
                             priority
                         />
-                    </button>
-                </div>
+                    </motion.button>
+                </motion.div>
 
-                {/* Desktop Navigation Links with Animated Indicator */}
-                <ul className="hidden lg:flex flex-row items-center space-x-8 text-sm">
+                {/* Clean Desktop Navigation */}
+                <motion.ul
+                    className="hidden lg:flex flex-row items-center space-x-8 text-sm"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                >
                     {navLinks.map(({ label, href }) => {
                         const isActive =
                             href === activeSection ||
@@ -134,23 +153,27 @@ const Navbar = () => {
                                 (`/${href}` === pathname || href === pathname));
                         return (
                             <li key={label} className="relative">
-                                <button
+                                <motion.button
                                     onClick={() => handleLinkClick(href)}
-                                    className={`flex items-center gap-3 font-medium transition cursor-pointer ${isActive
+                                    className={`flex items-center gap-3 font-medium transition-colors duration-200 py-2 px-1 ${isActive
                                         ? "text-primary-web"
                                         : "text-black hover:text-primary-web/80"
                                         }`}
+                                    whileHover={{ y: -1 }}
+                                    transition={{ duration: 0.2 }}
                                     aria-current={isActive ? "page" : undefined}
                                 >
                                     {label}
-                                </button>
+                                </motion.button>
+
+                                {/* Smooth Active Indicator */}
                                 {isActive && (
                                     <motion.div
                                         layoutId="active-nav-indicator"
-                                        className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary-web"
+                                        className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-web to-accent"
                                         transition={{
                                             type: "spring",
-                                            stiffness: 350,
+                                            stiffness: 400,
                                             damping: 30,
                                         }}
                                     />
@@ -158,63 +181,125 @@ const Navbar = () => {
                             </li>
                         );
                     })}
-                </ul>
+                </motion.ul>
 
-                {/* Desktop "Schedule a Demo" */}
-                <div className="hidden lg:block">
-                    <Button
-                        onClick={() => handleLinkClick("#contact")}
-                        className="rounded-4xl bg-[#958AFF] text-white  px-4 py-2 hover:bg-[#958AFF]/95 cursor-pointer transition"
+                {/* Simple CTA Button */}
+                <motion.div
+                    className="hidden lg:block"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                >
+                    <motion.div
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
                     >
-                        Schedule a Demo
-                    </Button>
-                </div>
+                        <Button
+                            onClick={() => handleLinkClick("#contact")}
+                            className="rounded-3xl bg-[#958AFF] text-white px-6 py-2 hover:bg-[#958AFF]/90 hover:shadow-lg hover:shadow-[#958AFF]/25 transition-all duration-300"
+                        >
+                            Schedule a Demo
+                        </Button>
+                    </motion.div>
+                </motion.div>
 
-                {/* Mobile Hamburger */}
+                {/* Clean Mobile Menu */}
                 <div className="lg:hidden flex items-center">
                     <Sheet open={open} onOpenChange={setOpen}>
                         <SheetTrigger asChild>
-                            <button
+                            <motion.button
                                 aria-label="Open navigation menu"
-                                className="p-2 text-primary"
+                                className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                             >
-                                <Menu size={28} className="text-primary-web" />
-                            </button>
+                                <motion.div
+                                    animate={{ rotate: 0 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    {
+                                        open ? (
+                                            <X size={28} className="text-primary-web" />
+                                        ) : (
+                                            <Menu size={28} className="text-primary-web" />
+                                        )
+                                    }
+                                    {/* <Menu size={28} className="text-primary-web" /> */}
+                                </motion.div>
+                            </motion.button>
                         </SheetTrigger>
-                        <SheetContent side="left" className="p-0">
+
+                        <SheetContent side="left" className="p-0 w-72">
                             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-                            <div className="p-6 flex flex-col gap-3">
-                                {navLinks.map(({ label, href }) => {
+
+                            <motion.div
+                                className="p-6 flex flex-col gap-3"
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                {/* Simple Mobile Header */}
+                                <motion.div
+                                    className="mb-6 pb-4 border-b border-gray-100"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.1 }}
+                                >
+                                    <h3 className="text-lg font-semibold text-gray-800">Navigation</h3>
+                                </motion.div>
+
+                                {/* Mobile Menu Items */}
+                                {navLinks.map(({ label, href }, index) => {
                                     const isActive =
                                         href === activeSection ||
                                         (pathname !== "/" &&
                                             (`/${href}` === pathname || href === pathname));
                                     return (
-                                        <button
+                                        <motion.button
                                             key={label}
                                             onClick={() => handleLinkClick(href)}
-                                            className={`block py-3 text-lg font-medium transition text-left ${isActive
-                                                ? "text-primary-web"
-                                                : "text-text-paragraph hover:text-text-heading"
+                                            className={`block py-3 px-4 text-lg font-medium transition-all duration-200 text-left rounded-lg ${isActive
+                                                ? "text-primary-web bg-primary-web/10 "
+                                                : "text-text-paragraph hover:text-text-heading hover:bg-gray-50"
                                                 }`}
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: index * 0.1 + 0.2 }}
+                                            whileHover={{ x: 5 }}
+                                            whileTap={{ scale: 0.98 }}
                                             aria-current={isActive ? "page" : undefined}
                                         >
                                             {label}
-                                        </button>
+                                        </motion.button>
                                     );
                                 })}
-                                <Button
-                                    onClick={() => handleLinkClick("#contact")}
-                                    className="w-full rounded-4xl text-center bg-web hover:bg-web/95 font-semibold text-black"
+
+                                {/* Mobile CTA */}
+                                <motion.div
+                                    className="mt-6 pt-4 border-t border-gray-100"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4 }}
                                 >
-                                    Schedule a Demo
-                                </Button>
-                            </div>
+                                    <motion.div
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                    >
+                                        <Button
+                                            onClick={() => handleLinkClick("#contact")}
+                                            className="w-full rounded-2xl bg-[#958AFF] text-white py-3 hover:bg-[#958AFF]/90 font-semibold transition-all duration-300"
+                                        >
+                                            Schedule a Demo
+                                        </Button>
+                                    </motion.div>
+                                </motion.div>
+                            </motion.div>
                         </SheetContent>
                     </Sheet>
                 </div>
             </div>
-        </nav>
+        </motion.nav>
     );
 };
 
