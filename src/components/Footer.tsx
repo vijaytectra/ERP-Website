@@ -77,7 +77,7 @@ const Footer = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className=" mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Main footer content grid */}
         <motion.div

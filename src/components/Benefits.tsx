@@ -57,7 +57,7 @@ const Benefits = () => {
       <Heading variant="fade" className="text-center">Benefits</Heading>
 
       {/* DESKTOP VIEW */}
-      <div className="hidden lg:grid max-w-7xl mx-auto grid-cols-2 gap-16">
+      <div className="hidden lg:grid  mx-auto grid-cols-2 gap-16">
         {/* Left column with scroll-triggered fade */}
         <div>
           {benefitsValues.map((benefit) => (

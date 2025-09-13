@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} max-w-7xl mx-auto antialiased`}>
+      <body className={`${manrope.variable}  antialiased`}>
         
         <Navbar/>
         {children}

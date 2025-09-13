@@ -113,7 +113,7 @@ const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
         >
-            <div className="max-w-7xl mx-auto px-3 md:py-5 lg:px-10 lg:py-1 flex items-center justify-between">
+            <div className="mx-auto px-3 md:py-5 lg:px-10 lg:py-1 flex items-center justify-between">
 
                 {/* Simple Logo Animation */}
                 <motion.div
