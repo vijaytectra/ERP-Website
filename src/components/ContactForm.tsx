@@ -30,6 +30,7 @@ const SubmitButton = ({ isPending }: { isPending: boolean }) => {
     <Button
       type="submit"
       disabled={isPending}
+       aria-label="submit form"
       className="w-full bg-primary-web cursor-pointer hover:bg-primary-web/90 disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {isPending ? (

@@ -124,6 +124,7 @@ const Navbar = () => {
                 >
                     <motion.button
                         onClick={() => handleLinkClick("#home")}
+                        aria-label="Navigate to homepage"
                         className="block cursor-pointer focus:outline-none"
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.2 }}
@@ -197,6 +198,7 @@ const Navbar = () => {
                     >
                         <Button
                             onClick={() => handleLinkClick("#contact")}
+                            aria-label="go to contact us"
                             className="rounded-3xl bg-[#958AFF] text-white px-6 py-2 hover:bg-[#958AFF]/90 hover:shadow-lg hover:shadow-[#958AFF]/25 transition-all duration-300"
                         >
                             Schedule a Demo
@@ -210,6 +212,7 @@ const Navbar = () => {
                         <SheetTrigger asChild>
                             <motion.button
                                 aria-label="Open navigation menu"
+
                                 className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}

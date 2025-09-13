@@ -122,7 +122,7 @@ const HeroSection = () => {
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
           >
-            <Button className="rounded-full w-48 cursor-pointer bg-web text-text-heading font-semibold px-6 py-3 hover:bg-web/90 transition-transform duration-200">
+            <Button  aria-label="Go to contact us " className="rounded-full w-48 cursor-pointer bg-web text-text-heading font-semibold px-6 py-3 hover:bg-web/90 transition-transform duration-200">
               Request a Demo
             </Button>
           </motion.a>
@@ -137,7 +137,7 @@ const HeroSection = () => {
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
           >
-            <Button className="rounded-full w-48 cursor-pointer border-[1px] border-web text-text-heading bg-white font-semibold px-6 py-3 hover:bg-white transition-transform duration-200">
+            <Button  aria-label="Go to Pricing section" className="rounded-full w-48 cursor-pointer border-[1px] border-web text-text-heading bg-white font-semibold px-6 py-3 hover:bg-white transition-transform duration-200">
               Get Pricing
             </Button>
           </motion.a>
