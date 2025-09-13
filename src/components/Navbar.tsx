@@ -134,7 +134,7 @@ const Navbar = () => {
                             alt="ERP Logo"
                             width={160}
                             height={60}
-                            className="object-contain w-[160px] h-[60px] md:w-[150px] md:h-[60px] lg:w-[180px] lg:h-[70px]"
+                            className="object-contain w-[160px] h-[70px] md:w-[150px] md:h-[60px] lg:w-[180px] lg:h-[70px]"
                             priority
                         />
                     </motion.button>
