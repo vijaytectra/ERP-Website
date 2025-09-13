@@ -8,12 +8,12 @@ interface PolicyListProps {
 export default function PolicyList({ title, items }: PolicyListProps) {
   return (
     <div className="space-y-2">
-        {title && <p className="font-semibold text-text-paragraph">{title}</p>}
-        <ul className="list-disc list-inside text-text-paragraph text-sm/7 space-y-2 font-medium">
-            {items.map((item, index) => (
-                <li key={index} className="pl-2">{item}</li>
-            ))}
-        </ul>
+      {title && <p className="font-semibold text-text-paragraph">{title}</p>}
+      <ul className="list-disc list-inside text-text-paragraph text-sm/7 space-y-2 font-bold">
+        {items.map((item, index) => (
+          <li key={index} className="pl-2">{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }

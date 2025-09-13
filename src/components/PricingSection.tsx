@@ -47,7 +47,7 @@ const PricingSection: FC = () => {
   };
 
   return (
-    <section 
+    <section
       className="w-full py-5"
       ref={containerRef}
       onMouseMove={handleMouseMove}
@@ -67,9 +67,8 @@ const PricingSection: FC = () => {
         >
           <Label
             htmlFor="billing-switch"
-            className={`text-sm font-medium cursor-pointer transition-all duration-300 ${
-              billing === "half_yearly" ? "text-text-heading" : "text-gray-500"
-            }`}
+            className={`text-sm font-bold cursor-pointer transition-all duration-300 ${billing === "half_yearly" ? "text-text-heading" : "text-gray-500"
+              }`}
           >
             Half-Yearly
           </Label>
@@ -95,9 +94,8 @@ const PricingSection: FC = () => {
         >
           <Label
             htmlFor="billing-switch"
-            className={`text-sm font-medium cursor-pointer transition-all duration-300 ${
-              billing === "yearly" ? "text-text-heading" : "text-gray-500"
-            }`}
+            className={`text-sm font-bold cursor-pointer transition-all duration-300 ${billing === "yearly" ? "text-text-heading" : "text-gray-500"
+              }`}
           >
             Yearly
           </Label>
@@ -110,7 +108,7 @@ const PricingSection: FC = () => {
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, scale: 0, rotate: 90 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="text-xs text-violet-600 font-medium"
+              className="text-xs text-violet-600 font-bold"
             >
               Save {YEARLY_DISCOUNT_PERCENTAGE}%
             </motion.span>
@@ -138,28 +136,28 @@ const PricingSection: FC = () => {
             <motion.div
               key={plan.name}
               variants={{
-                hidden: { 
-                  opacity: 0, 
+                hidden: {
+                  opacity: 0,
                   y: 60,
                   rotateX: -20,
                   scale: 0.9
                 },
-                show: { 
-                  opacity: 1, 
+                show: {
+                  opacity: 1,
                   y: 0,
                   rotateX: 0,
                   scale: 1
                 },
               }}
-              transition={{ 
-                duration: 0.7, 
+              transition={{
+                duration: 0.7,
                 type: "spring",
                 stiffness: 100,
                 damping: 20,
                 delay: index * 0.1
               }}
-              whileHover={{ 
-                scale: 1.03, 
+              whileHover={{
+                scale: 1.03,
                 rotateY: plan.popular ? 0 : 3,
                 z: 30,
                 boxShadow: "0px 8px 25px rgba(0,0,0,0.1)"
@@ -169,11 +167,10 @@ const PricingSection: FC = () => {
                 rotateX: plan.popular ? 0 : globalCardRotateX,
                 transformStyle: "preserve-3d"
               }}
-              className={`relative border rounded-2xl p-6 flex flex-col shadow-sm transition-transform duration-300 ${
-                plan.popular
+              className={`relative border rounded-2xl p-6 flex flex-col shadow-sm transition-transform duration-300 ${plan.popular
                   ? "border-[#968BFF] ring-[1px] ring-[#968BFF]"
                   : "border-gray-200"
-              }`}
+                }`}
             >
               {/* Enhanced Popular Badge */}
               <AnimatePresence>
@@ -191,7 +188,7 @@ const PricingSection: FC = () => {
               </AnimatePresence>
 
               {/* Animated Title */}
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
@@ -199,12 +196,12 @@ const PricingSection: FC = () => {
               >
                 {plan.name}
               </motion.h3>
-              
-              <motion.p 
+
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4, duration: 0.5, type: "spring" }}
-                className="text-sm text-text-paragraph mt-1"
+                className="text-sm font-medium text-text-paragraph mt-1"
               >
                 {plan.tagline}
               </motion.p>
@@ -221,15 +218,15 @@ const PricingSection: FC = () => {
                       transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
                       className="flex items-end gap-2"
                     >
-                      <motion.p 
+                      <motion.p
                         className="xl:text-3xl text-2xl font-bold text-text-heading"
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 300 }}
                       >
                         Rs.{yearlyDiscountedPrice}
                       </motion.p>
-                      <motion.p 
-                        className="text-xl font-medium text-gray-400 line-through"
+                      <motion.p
+                        className="text-xl font-bold text-gray-400 line-through"
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2, type: "spring" }}
@@ -247,7 +244,7 @@ const PricingSection: FC = () => {
                       transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
                       className="flex items-end gap-2"
                     >
-                      <motion.p 
+                      <motion.p
                         className="text-4xl font-bold text-text-heading"
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 300 }}
@@ -261,17 +258,17 @@ const PricingSection: FC = () => {
               </div>
 
               {/* Animated Description */}
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
-                className="text-sm text-text-paragraph"
+                className="text-sm font-medium text-text-paragraph"
               >
                 {plan.description}
               </motion.p>
 
               {/* Enhanced Features List */}
-              <motion.ul 
+              <motion.ul
                 className="mt-6 space-y-3 text-sm flex-1"
                 variants={{
                   hidden: {},
@@ -292,7 +289,7 @@ const PricingSection: FC = () => {
                     }}
                     whileHover={{ x: 5, scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                    className="flex items-center gap-2 text-text-paragraph cursor-default"
+                    className="flex font-medium items-center gap-2 text-text-paragraph cursor-default"
                   >
                     <motion.div
                       whileHover={{ scale: 1.2, rotate: 360 }}
@@ -312,12 +309,11 @@ const PricingSection: FC = () => {
                 className="mt-8"
               >
                 <Button
-                 aria-label="Get started"
-                  className={`w-full rounded-lg py-2 font-medium text-sm cursor-pointer transition-colors ${
-                    plan.popular
+                  aria-label="Get started"
+                  className={`w-full rounded-lg py-2 font-bold text-sm cursor-pointer transition-colors ${plan.popular
                       ? "bg-[#968BFF] text-white hover:bg-violet-500"
                       : "bg-[#968BFF]/50 text-black hover:text-white hover:bg-[#968BFF]"
-                  }`}
+                    }`}
                 >
                   <motion.span
                     whileHover={{ letterSpacing: "0.02em" }}

@@ -126,7 +126,7 @@ export const benefitsValues = [
     id: 1,
     title: "End-to-End Automation",
     description:
-      "Digitize admissions, fees, attendance, exams, timetables, communication, and compliance to reduce manual work and errors.",
+      "Digitize admissions, fees, attendance, exams, timetables, communication, and compliance to reduce manual work and errors. Seamless integration between modules eliminates data silos and duplicate entry. Advanced workflow automation ensures smooth transitions from enrollment to graduation, while smart notifications keep all stakeholders informed at every step.",
     icon: Workflow,
     imageUrl: ben1,
   },
@@ -134,7 +134,7 @@ export const benefitsValues = [
     id: 2,
     title: "Faster Decisions with Analytics",
     description:
-      "Performance dashboards, predictive insights, and heatmaps highlight trends and risks across departments and criteria.",
+      "Performance dashboards, predictive insights, and heatmaps highlight trends and risks across departments and criteria. Real-time reporting enables quick course corrections, while customizable KPI tracking helps achieve institutional goals. Advanced forecasting models predict student outcomes, resource needs, and financial projections with remarkable accuracy.",
     icon: ChartNoAxesColumnIncreasing,
     imageUrl: ben2,
   },
@@ -142,7 +142,7 @@ export const benefitsValues = [
     id: 3,
     title: "Real-Time Parent Engagement",
     description:
-      "Instant alerts for attendance, results, fees, events, and meetings via SMS, email, app, and WhatsApp.",
+      "Instant alerts for attendance, results, fees, events, and meetings via SMS, email, app, and WhatsApp. Interactive parent portals enable direct communication with teachers and access to student progress reports. Automated appointment scheduling and feedback collection systems strengthen the school-parent partnership and improve student outcomes.",
     icon: MessageSquare,
     imageUrl: ben3,
   },
@@ -150,7 +150,7 @@ export const benefitsValues = [
     id: 4,
     title: "Compliance Made Easy",
     description:
-      "Auto-generate SSR/SAR/AQAR, version control, immutable audit trails, and board-specific exports cut report time from months to days.",
+      "Auto-generate SSR/SAR/AQAR, version control, immutable audit trails, and board-specific exports cut report time from months to days. Pre-built templates for NAAC, NBA, and other accreditation bodies ensure 100% compliance. Automated document management and evidence collection streamline the entire accreditation process with zero manual effort.",
     icon: FileChartColumnIncreasing,
     imageUrl: ben4,
   },
@@ -158,7 +158,7 @@ export const benefitsValues = [
     id: 5,
     title: "Bank-Grade Security",
     description:
-      "RBAC, field-level encryption (Aadhaar, bank info), 2FA, backups with geo-redundancy, and lock mode before audits.",
+      "RBAC, field-level encryption (Aadhaar, bank info), 2FA, backups with geo-redundancy, and lock mode before audits. 24/7 threat monitoring and incident response protocols protect sensitive data from cyber attacks. SOC 2 Type II and ISO 27001 compliance ensures your institution meets the highest security standards while maintaining seamless user experience.",
     icon: ShieldCheck,
     imageUrl: ben5,
   },
@@ -166,7 +166,7 @@ export const benefitsValues = [
     id: 6,
     title: "Flexible Payments",
     description:
-      "Online gateways, offline modes, auto-receipts, late-fee rules, and student wallet for canteen, events, and fines.",
+      "Online gateways, offline modes, auto-receipts, late-fee rules, and student wallet for canteen, events, and fines. Customizable installment plans and scholarship management reduce financial barriers for students. Integration with major banks enables direct fee collection, while detailed financial reporting provides complete transparency to parents and administrators.",
     icon: IdCard,
     imageUrl: ben6,
   },

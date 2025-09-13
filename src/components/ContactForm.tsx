@@ -30,7 +30,7 @@ const SubmitButton = ({ isPending }: { isPending: boolean }) => {
     <Button
       type="submit"
       disabled={isPending}
-       aria-label="submit form"
+      aria-label="submit form"
       className="w-full bg-primary-web cursor-pointer hover:bg-primary-web/90 disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {isPending ? (
@@ -181,7 +181,7 @@ const ContactForm = () => {
                 <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                   <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} className="mt-0.5 border-white" /></FormControl>
                   <div className="space-y-1 leading-none">
-                    <label htmlFor={field.name} className="text-sm font-medium leading-snug text-white cursor-pointer">
+                    <label htmlFor={field.name} className="text-sm font-bold leading-snug text-white cursor-pointer">
                       I agree to the{' '}
                       <button type="button" onClick={(e) => { e.stopPropagation(); setIsPrivacyOpen(true); }} className="text-blue-600 underline hover:text-blue-800 focus:outline-none">
                         Privacy Policy
@@ -202,7 +202,7 @@ const ContactForm = () => {
               {!state.success && state.message && (
                 <div className="flex items-center p-3 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
                   <AlertCircle className="flex-shrink-0 inline w-4 h-4 mr-3" />
-                  <span className="font-medium">{state.errors || state.message}</span>
+                  <span className="font-bold">{state.errors || state.message}</span>
                 </div>
               )}
               <p className="text-xs text-white text-center">* All fields are required</p>

@@ -44,19 +44,19 @@ const FeaturesCard: React.FC<FeaturesCardProps> = ({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ 
+      transition={{
         duration: 0.5,
         ease: [0.25, 0.46, 0.45, 0.94]
       }}
     >
       {/* Optimized hover background - single layer */}
-      <div 
+      <div
         className="absolute inset-0 bg-gradient-to-br from-primary-web/3 to-accent/3 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"
         style={{ willChange: 'opacity' }}
       />
 
       {/* Simplified border effect */}
-      <div 
+      <div
         className="absolute inset-0 rounded-2xl border border-primary-web/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{ willChange: 'opacity' }}
       />
@@ -86,7 +86,7 @@ const FeaturesCard: React.FC<FeaturesCardProps> = ({
         </motion.div>
 
         {/* Simplified glow effect */}
-        <div 
+        <div
           className="absolute inset-0 -z-10 bg-primary-web/10 blur-lg rounded-lg mx-auto w-3/4 h-3/4 opacity-60"
           style={{ willChange: 'opacity' }}
         />
@@ -97,7 +97,7 @@ const FeaturesCard: React.FC<FeaturesCardProps> = ({
           {/* Optimized Icon Container */}
           <motion.div
             className="flex-shrink-0 p-3 rounded-2xl transition-transform duration-300 ease-out"
-            style={{ 
+            style={{
               backgroundColor: iconbg,
               willChange: 'transform'
             }}
@@ -107,9 +107,9 @@ const FeaturesCard: React.FC<FeaturesCardProps> = ({
               transition: { duration: 0.2 }
             } : {}}
           >
-            <Icon 
-              className="text-4xl transition-transform duration-500 ease-in-out" 
-              style={{ color: iconColor }} 
+            <Icon
+              className="text-4xl transition-transform duration-500 ease-in-out"
+              style={{ color: iconColor }}
             />
           </motion.div>
 
@@ -118,7 +118,7 @@ const FeaturesCard: React.FC<FeaturesCardProps> = ({
           </h3>
         </div>
 
-        <p className="text-sm text-text-paragraph mt-1">
+        <p className="text-sm text-text-paragraph font-medium mt-1">
           {description}
         </p>
       </div>

@@ -86,7 +86,7 @@ const WhyUsCard: React.FC<WhyUsCardProps> = ({
           {title}
         </motion.h3>
         <motion.p 
-          className="text-sm text-text-paragraph mt-1"
+          className="text-sm font-medium text-text-paragraph mt-1"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}

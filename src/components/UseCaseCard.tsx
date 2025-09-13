@@ -51,7 +51,7 @@ const UseCaseCard: FC<UseCaseCardProps> = ({
       </motion.div>
 
       <h3 className="text-lg font-semibold text-text-heading">{title}</h3>
-      <p className="text-sm text-text-paragraph leading-relaxed">{description}</p>
+      <p className="text-sm text-text-paragraph leading-relaxed font-medium">{description}</p>
     </motion.div>
   );
 };

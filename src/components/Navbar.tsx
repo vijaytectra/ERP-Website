@@ -158,7 +158,7 @@ const Navbar = () => {
                                     onClick={() => handleLinkClick(href)}
                                     className={`flex items-center gap-3 font-medium transition-colors duration-200 py-2 px-1 ${isActive
                                         ? "text-primary-web"
-                                        : "text-black hover:text-primary-web/80"
+                                        : "text-black hover:text-primary-web/90"
                                         }`}
                                     whileHover={{ y: -1 }}
                                     transition={{ duration: 0.2 }}
@@ -199,7 +199,7 @@ const Navbar = () => {
                         <Button
                             onClick={() => handleLinkClick("#contact")}
                             aria-label="go to contact us"
-                            className="rounded-3xl bg-[#958AFF] text-white px-6 py-2 hover:bg-[#958AFF]/90 hover:shadow-lg hover:shadow-[#958AFF]/25 transition-all duration-300"
+                            className="rounded-3xl font-light bg-[#958AFF] text-white px-6 py-2 hover:bg-[#958AFF]/90 hover:shadow-lg hover:shadow-[#958AFF]/25 transition-all duration-300"
                         >
                             Schedule a Demo
                         </Button>
@@ -242,15 +242,7 @@ const Navbar = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                {/* Simple Mobile Header */}
-                                <motion.div
-                                    className="mb-6 pb-4 border-b border-gray-100"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 0.1 }}
-                                >
-                                    <h3 className="text-lg font-semibold text-gray-800">Navigation</h3>
-                                </motion.div>
+
 
                                 {/* Mobile Menu Items */}
                                 {navLinks.map(({ label, href }, index) => {
@@ -280,7 +272,7 @@ const Navbar = () => {
 
                                 {/* Mobile CTA */}
                                 <motion.div
-                                    className="mt-6 pt-4 border-t border-gray-100"
+                                    className=" "
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.4 }}
@@ -291,7 +283,7 @@ const Navbar = () => {
                                     >
                                         <Button
                                             onClick={() => handleLinkClick("#contact")}
-                                            className="w-full rounded-2xl bg-[#958AFF] text-white py-3 hover:bg-[#958AFF]/90 font-semibold transition-all duration-300"
+                                            className="w-full rounded-2xl font-light bg-[#958AFF] text-white py-3 hover:bg-[#958AFF]/90  transition-all duration-300"
                                         >
                                             Schedule a Demo
                                         </Button>
