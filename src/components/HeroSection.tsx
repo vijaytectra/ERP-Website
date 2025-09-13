@@ -47,7 +47,7 @@ const HeroSection = () => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className="flex flex-col items-center justify-center space-y-16 px-5 lg:px-10 py-10 bg-[linear-gradient(1deg,#65B2DAB3_0.83%,rgba(255,255,255,0.7)_99.12%)] overflow-hidden"
+      className="flex flex-col items-center justify-center space-y-16 px-5 lg:px-10 py-10 bg-[linear-gradient(1deg,#65B2DAB3_0.83%,rgba(255,255,255,0.7)_99.12%)]  overflow-hidden"
     >
       {/* Text Content - keeping your exact styling */}
       <motion.div

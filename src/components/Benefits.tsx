@@ -53,7 +53,7 @@ const Benefits = () => {
   const activeBenefit = benefitsValues.find((b) => b.id === activeId);
 
   return (
-    <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-20 space-y-16 bg-[#65B2DA] lg:bg-[linear-gradient(90deg,#FFFFFF_0%,#65B2DA_90%)]">
+    <section className="relative flex flex-col items-center justify-center px-5 lg:px-10 py-20 space-y-16 bg-[#65B2DA] lg:bg-[linear-gradient(90deg,#65B2DA_0%,#FFFFFF_100%)]">
       <Heading variant="fade" className="text-center">Benefits</Heading>
 
       {/* DESKTOP VIEW */}
@@ -66,7 +66,7 @@ const Benefits = () => {
         </div>
 
         {/* Right column with animated image */}
-        <div className="sticky top-16 h-96 flex items-center justify-center">
+        <div className="sticky top-20 h-96 flex items-center justify-center">
           <div className="relative w-full aspect-video">
             <AnimatePresence mode="wait">
               {activeBenefit && (
