@@ -91,7 +91,7 @@ const WhyUs = () => {
 
         {/* Enhanced Cards with Stagger Animation */}
         <motion.div
-          className="grid grid-cols-1 gap-2"
+          className="grid grid-cols-1 lg:gap-2 gap-7"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
