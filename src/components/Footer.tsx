@@ -212,14 +212,14 @@ const Footer = () => {
                     <Mail size={14} className="text-accent" />
                   </motion.div>
                   <motion.a
-                    href="mailto:teamedusuite@yahoo.com"
+                    href="mailto:theedusuite@zohomail.in"
                     className="text-white hover:text-white/90 transition-colors duration-200"
                     whileHover={shouldReduceMotion ? {} : {
                       x: 3,
                       transition: { duration: 0.2 }
                     }}
                   >
-                    teamedusuite@yahoo.com
+                    theedusuite@zohomail.in
 
                   </motion.a>
                 </motion.li>

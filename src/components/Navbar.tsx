@@ -13,7 +13,7 @@ import { Menu, X } from "lucide-react";
 import { navLinks } from "@/utils/consts";
 import { Button } from "./ui/button";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
-
+import Link from "next/link";
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [activeSection, setActiveSection] = useState<string>("#home");
@@ -81,12 +81,13 @@ const Navbar = () => {
             sections.forEach((section) => observer.observe(section));
             return () => observer.disconnect();
         } else {
-            const currentNavLink = navLinks.find(
-                (link) => `/${link.href}` === pathname || link.href === pathname
-            );
-            if (currentNavLink) {
-                setActiveSection(currentNavLink.href);
-            }
+            // const currentNavLink = navLinks.find(
+            //     (link) => `/${link.href}` === pathname || link.href === pathname
+            // );
+            // if (currentNavLink) {
+            //     setActiveSection(currentNavLink.href);
+            // }
+            setActiveSection("");
         }
     }, [pathname]);
 
@@ -195,11 +196,20 @@ const Navbar = () => {
                         whileHover={{ scale: 1.05, y: -2 }}
                         whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
+                        className="flex gap-2"
                     >
+                          <Button
+                           onClick={() => handleLinkClick("/logins")}
+                            aria-label="go to contact us"
+                            className=" font-light bg-[#958AFF] text-white px-6 py-2 hover:bg-[#958AFF]/90 hover:shadow-lg hover:shadow-[#958AFF]/25 transition-all duration-300"
+                        
+                        >
+                        Login
+                        </Button>
                         <Button
                             onClick={() => handleLinkClick("#contact")}
                             aria-label="go to contact us"
-                            className="rounded-3xl font-light bg-[#958AFF] text-white px-6 py-2 hover:bg-[#958AFF]/90 hover:shadow-lg hover:shadow-[#958AFF]/25 transition-all duration-300"
+                            className=" font-light bg-[#958AFF] text-white px-6 py-2 hover:bg-[#958AFF]/90 hover:shadow-lg hover:shadow-[#958AFF]/25 transition-all duration-300"
                         >
                             Schedule a Demo
                         </Button>
@@ -272,15 +282,21 @@ const Navbar = () => {
 
                                 {/* Mobile CTA */}
                                 <motion.div
-                                    className=" "
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.4 }}
-                                >
+                                    >
                                     <motion.div
+                                    className="flex flex-col gap-2"
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                     >
+                                        <Button
+                                            onClick={() => handleLinkClick("/logins")}
+                                            
+                                            className="w-full rounded-2xl font-light bg-[#958AFF] text-white py-3 hover:bg-[#958AFF]/90  transition-all duration-300"
+                                        >
+Login                                        </Button>
                                         <Button
                                             onClick={() => handleLinkClick("#contact")}
                                             className="w-full rounded-2xl font-light bg-[#958AFF] text-white py-3 hover:bg-[#958AFF]/90  transition-all duration-300"

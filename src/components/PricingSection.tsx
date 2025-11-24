@@ -14,12 +14,14 @@ import {
   useTransform,
   AnimatePresence,
 } from "motion/react";
+import { useRouter } from "next/navigation";
 
 const YEARLY_DISCOUNT_PERCENTAGE = 20;
 
 const PricingSection: FC = () => {
   const [billing, setBilling] = useState<"half_yearly" | "yearly">("yearly");
   const containerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   // Mouse tracking for subtle parallax effects
   const mouseX = useMotionValue(0);
@@ -44,6 +46,9 @@ const PricingSection: FC = () => {
   const handleMouseLeave = () => {
     mouseX.set(0);
     mouseY.set(0);
+  };
+  const handleLinkClick = (href: string) => {
+    router.push(href);
   };
 
   return (
@@ -314,6 +319,7 @@ const PricingSection: FC = () => {
                       ? "bg-[#968BFF] text-white hover:bg-violet-500"
                       : "bg-[#968BFF]/50 text-black hover:text-white hover:bg-[#968BFF]"
                     }`}
+                    onClick={() => handleLinkClick("#contact")}
                 >
                   <motion.span
                     whileHover={{ letterSpacing: "0.02em" }}

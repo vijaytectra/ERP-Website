@@ -57,6 +57,8 @@ const ContactForm = () => {
   }
 
   const [state, formAction] = useActionState(submitContactForm, initialState)
+  const[errorMessage, setErrorMessage] = useState<string | null>(null)
+  const[successMessage, setSuccessMessage] = useState<string | null>(null)
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -85,25 +87,16 @@ const ContactForm = () => {
 
   useEffect(() => {
     if (state.success) {
+      setSuccessMessage(state.message)
+      setErrorMessage(null)
       form.reset()
+    } else {
+      setErrorMessage(state.errors || state.message)
+      setSuccessMessage(null)
     }
   }, [state, form])
 
-  if (state.success) {
-    return (
-      <div className="max-w-2xl mx-auto p-6">
-        <Card className="border-green-200 bg-green-50/50 text-center">
-          <CardContent className="pt-6">
-            <div className="flex items-center justify-center space-x-2 text-green-700">
-              <CheckCircle className="h-8 w-8" />
-              <h2 className="text-2xl font-semibold">Thank You!</h2>
-            </div>
-            <p className="text-green-600 mt-2">{state.message}</p>
-          </CardContent>
-        </Card>
-      </div>
-    )
-  }
+
 
   return (
     <div className="max-w-2xl mx-auto lg:p-10">
@@ -207,6 +200,18 @@ const ContactForm = () => {
               )}
               <p className="text-xs text-white text-center">* All fields are required</p>
             </form>
+            {successMessage && (
+              <div className="flex items-center p-3 text-sm text-green-800 rounded-lg bg-green-50" role="alert">
+                <CheckCircle className="flex-shrink-0 inline w-4 h-4 mr-3" />
+                <span className="font-medium">{successMessage}</span>
+              </div>
+            )}
+            {errorMessage && (
+              <div className="flex items-center p-3 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+                <AlertCircle className="flex-shrink-0 inline w-4 h-4 mr-3" />
+                <span className="font-medium">{errorMessage}</span>
+              </div>
+            )}
           </Form>
         </CardContent>
       </Card>

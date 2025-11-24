@@ -7,9 +7,11 @@ import { render } from "@react-email/render";
 import { contactFormSchema } from "@/validation/contactFormSchema";
 import ContactEmailTemplate from "@/EmailTemplates/ContactEmailTemplate";
 
-// Create transporter for Gmail
+// Create transporter for Zoho Mail
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.zoho.in",
+  port: 587,
+  secure: false, // true for 465, false for other ports
   auth: {
     user: process.env.MY_EMAIL,
     pass: process.env.APP_PASSWORD,

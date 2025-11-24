@@ -108,8 +108,8 @@ export default function DataSecurityPage() {
                     </PolicyParagraph>
                     <PolicyParagraph>
                         Email:{" "}
-                        <a href="mailto:security@edusuite.com" className="underline hover:text-primary">
-                            security@edusuite.com
+                        <a href="mailto:theedusuite@zohomail.in" className="underline hover:text-primary">
+                            theedusuite@zohomail.in
                         </a>
                     </PolicyParagraph>
                 </PolicySection>

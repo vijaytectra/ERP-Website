@@ -118,8 +118,8 @@ export default function TermsAndServicesPage() {
                     </PolicyParagraph>
                     <PolicyList
                         items={[
-                            "Email: legal@edusuite.com",
-                            "Address: 123 Education Lane, Knowledge City, 45678"
+                             "Email: theedusuite@zohomail.in",
+                            "Address: No.301-B3, 3rd Flooor, Alpha Block,SSPDL Alphacity,Navalur,OMR,Chennai-600130,Tamil Nadu,India"
                         ]}
                     />
                 </PolicySection>
